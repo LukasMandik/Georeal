@@ -1,0 +1,29 @@
+
+
+{% load static %}
+
+<div class="wrapper">
+    <div class="main_navbar">
+        <div class="inner_navbar">
+            <div class="logo">
+{#                <a href="/"><img src="{% static 'media/lm_logo.png' %}"></a>#}
+                <a href="/"><h2>Georeal</h2></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="/">Domov</a></li>
+                    <li><a href="">Kontakt</a></li>
+                    <li><a href="">Napíšte nám</a></li>
+{#                    {% if user.is_authenticated %}#}
+{#                    <li><a href="/logout">Odhlásiť sa</a></li>#}
+{#                    {% endif %}#}
+                </ul>
+            </div>
+
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+</div>
+

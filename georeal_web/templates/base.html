@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <title>{% block title %}  {%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+{% block main %}
+<div id="loading-screen" class="loading-screen">
+    <div class="loading-text">Loading...</div>
+</div>
+{% include 'navbar.html' %}
+    {% block content %}
+    {% endblock %}
+{% include 'footer.html' %}
+{% endblock %}
+<script src="{% static 'js/loading.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
