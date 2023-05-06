@@ -1,7 +1,7 @@
 
 
 {% load static %}
-
+<section id="home">
 <div class="wrapper">
     <div class="main_navbar">
         <div class="inner_navbar">
@@ -11,9 +11,9 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="/">Domov</a></li>
-                    <li><a href="">Kontakt</a></li>
-                    <li><a href="">Napíšte nám</a></li>
+                    <li><a href="#home">Domov</a></li>
+                    <li><a href="#sluzby">Služby</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
 {#                    {% if user.is_authenticated %}#}
 {#                    <li><a href="/logout">Odhlásiť sa</a></li>#}
 {#                    {% endif %}#}
@@ -26,4 +26,4 @@
         </div>
     </div>
 </div>
-
+</section>

@@ -1,103 +1,135 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}HOME{% endblock %}
+{% block title %}GEOREAL{% endblock %}
 
 
 
 {% block content %}
 <div class="main_home_container">
 
-{#    <div class="slideshow-container">#}
-{#        {% for photo in photos %}#}
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="{% static 'media/2360943.jpg' %}">
+        </div>
 {#        <div class="mySlides fade">#}
-{#            <img src="{{photo.image.url}}">#}
-{#            <div class="text">{{ photo.name }}</div>#}
+{#            <img src="{% static 'media/shutterstock_13693108731-5f89a71c3e503.jpeg' %}">#}
 {#        </div>#}
-{#        {% endfor %}#}
-{#        <div class="row_dot" style="text-align:center">#}
-{#            <span class="dot" onclick="currentSlide(1)"></span>#}
-{#            <span class="dot" onclick="currentSlide(2)"></span>#}
-{#            <span class="dot" onclick="currentSlide(3)"></span>#}
+{#        <div class="mySlides fade">#}
+{#            <img src="{% static 'media/priloha4-strana1.png' %}">#}
 {#        </div>#}
-{#        <a class="prev" onclick="plusSlides(-1)">❮</a>#}
-{#        <a class="next" onclick="plusSlides(1)">❯</a>#}
-{#    </div>#}
 
-    <div class="home_container">
-        {% if request.user.is_authenticated %}
-            <div class="left_home_container">
-                <div class="title_home_container"><h2>GEOMETRICKÉ PLÁNY:</h2></div>
-                <div class="item_home_container">
-                    <p>- zameranie adresného bodu</p>
-                    <p>- zameranie pozemkov</p>
-                    <p>- zameranie stavieb</p>
-                    <p>- majetkoprávne vysporiadanie</p>
-                    <p>- vytyčovanie hraníc pozemkov</p>
-                    <p>- vytyčovanie stavieb</p>
-                    <p>- vecné bremená</p>
-                    <p>- kontrolné merania (stavby,pozemky,ploty..)</p>
-                </div>
-            </div>
-        <div class="left_home_container">
-            <div class="right_home_container hidden">
-                <div class="title_home_container"><h2>INŽINIERSKA GEODÉZIA:</h2></div>
-{#                <img src="{{ home_photo.image.url }}" alt="{{ home_photo.name }}">#}
-                <div class="item_home_container">
-                    <p>- zameranie skučného vyhotovenia stavieb (porealizačné  zameranie)</p>
-                    <p>- polohopisné a výškopisné práce</p>
-                    <p>- zameranie a vytýčenie líniových stavieb</p>
-                </div>
-            </div>
+        <div class="row_dot" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
 
-            <div class="down_home_container hidden2">
-                <div class="title_home_container">
-                    <h2>NEÚČTUJEME DPH</h2>
-                </div>
-                <div class="item_home_container">
-                    <p>Viac ako 30 rokov skúseností za rozumné ceny.</p>
-                </div>
-
-            </div>
-            {% else %}
-                <div class="item_home_container">
-                    <p>You are not logged in.</p>
-                    <p>The beauty of nature captured through the lens. Explore stunning landscapes, breathtaking mountain ranges, and serene bodies of water. From majestic sunsets to vibrant autumn foliage, every photo tells a story. Discover the wonder and tranquility of the great outdoors.</p>
-                </div>
-            {% endif %}
+    <div class="top_home_container">
+        <div class="title_home_container"><h2>GEOREAL Vám prináša prispôsobené geodetické služby</h2></div>
+        <div class="item_home_container">
+            <p>Nerozhoduje, aký veľký rozsah zákazky nám zveríte, či pôjde o niekoľko metrov alebo kilometrov, spoločnost Georeal zabezpečí rýchle a kvalitné riešenie za nekonkurenčnú cenu.</p>
+            <p>- Viac ako 30 rokov odbornej praxe za dostupné ceny</p>
+            <p>- neuctujeme dph</p>
         </div>
     </div>
 
-</div>
 
-<!--    <style>-->
-<!--        .left_home_container {-->
-<!--            background-image: url('{% static "images/_DSC9014.JPG" %}');-->
-<!--            background-size: cover;-->
-<!--            background-position: top;-->
-<!--            background-repeat: no-repeat;-->
-<!--        }-->
-<!--    </style>-->
+<section id="sluzby">
+    <div class="sluzby_container hidden2">
+        <div class="title_home_container">
+            <h1>PONÚKANÉ SLUŽBY</h1>
+            <a href="#sluzby"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <div class="right_home_container hidden">
+        <div class="title_home_container">
+            <h2>GEOMETRICKÉ PLÁNY:</h2>
+        </div>
+        <div class="item_home_container">
+            <p><i class="fas fa-map-marker-alt"></i>Zameranie adresného bodu</p>
+            <p><i class="fas fa-map-pin"></i>Zameranie pozemkov</p>
+            <p><i class="fas fa-street-view"></i>Zameranie stavieb</p>
+            <p><i class="fas fa-gavel"></i>Majetkoprávne vysporiadanie</p>
+            <p><i class="fas fa-map"></i>Vytyčovanie hraníc pozemkov</p>
+            <p><i class="fas fa-globe"></i>Vytyčovanie stavieb</p>
+            <p><i class="fas fa-ruler"></i>Vecné bremená</p>
+            <p><i class="fas fa-satellite-dish"></i>Kontrolné merania (stavby,pozemky,ploty..)</p>
+        </div>
+    </div>
 
+    <div class="down_home_container hidden2">
+        <div class="title_home_container"><h2>INŽINIERSKA GEODÉZIA:</h2></div>
+{#                <img src="{{ home_photo.image.url }}" alt="{{ home_photo.name }}">#}
+        <div class="item_home_container">
+            <p><i class="fas fa-binoculars"></i>Zameranie skučného vyhotovenia stavieb (porealizačné  zameranie)</p>
+            <p><i class="fas fa-landmark"></i>Polohopisné a výškopisné práce</p>
+            <p><i class="fas fa-crosshairs"></i>Zameranie a vytýčenie líniových stavieb</p>
+        </div>
+    </div>
+</section>
 
+<section id="kontakt">
+    <div class="kontakt_container hidden2">
+        <div class="title_home_container">
+            <h1>KONTAKT</h1>
+            <a href="#kontakt"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <div>
+        <form action="#" method="post">
+            <div>
+                <label for="name">Meno:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="message">Správa:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Odoslať</button>
+        </form>
+    </div>
+</section>
 
 <script>
   document.addEventListener('scroll', function () {
-    const leftContainer = document.querySelector('.left_home_container');
+    const topContainer = document.querySelector('.top_home_container');
+    const sluzbyContainer = document.querySelector('.sluzby_container');
     const rightContainer = document.querySelector('.right_home_container');
     const downContainer = document.querySelector('.down_home_container');
-    const leftContainerRect = leftContainer.getBoundingClientRect();
+    const kontaktContainer = document.querySelector('.kontakt_container');
+    const topContainerRect = topContainer.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    if (leftContainerRect.bottom <= windowHeight - 180) {
+
+    if (topContainerRect.bottom <= windowHeight - 200) {
+      sluzbyContainer.classList.remove('hidden2');
+    } else {
+      sluzbyContainer.classList.add('hidden2');
+    }
+
+    if (topContainerRect.bottom <= windowHeight - 550) {
       rightContainer.classList.remove('hidden');
     } else {
       rightContainer.classList.add('hidden');
     }
 
-        if (leftContainerRect.bottom <= windowHeight - 400) {
+        if (topContainerRect.bottom <= windowHeight - 700) {
       downContainer.classList.remove('hidden2');
     } else {
       downContainer.classList.add('hidden2');
+    }
+
+      if (topContainerRect.bottom <= windowHeight - 1200) {
+      kontaktContainer.classList.remove('hidden2');
+    } else {
+      kontaktContainer.classList.add('hidden2');
     }
   });
 </script>

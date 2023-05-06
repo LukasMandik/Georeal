@@ -6,19 +6,6 @@ let menu = document.querySelector(".menu");
 	})
 
 
-// var navBar = document.querySelector(".navbar"); // vyberte navigačný panel
-// var offset = 100; // nastavte hodnotu posunu, po ktorom sa zmení veľkosť
-// var lastScrollPos = 0;
-//
-// window.addEventListener("scroll", function() { // pridajte event listener na posun stránky
-//   var currentScrollPos = window.pageYOffset; // zistite aktuálnu pozíciu posunu stránky
-//   if (currentScrollPos > lastScrollPos && currentScrollPos > offset) { // ak sme posunuli smerom nadol a sme dostatočne ďaleko od začiatku stránky
-//     navBar.classList.add("small"); // pridajte triedu pre menší navigačný panel
-//   } else { // ak sme posunuli smerom nahor alebo sme príliš blízko začiatku stránky
-//     navBar.classList.remove("small"); // odstráňte triedu pre menší navigačný panel
-//   }
-//   lastScrollPos = currentScrollPos; // uložte aktuálnu pozíciu posunu ako poslednú
-// });
 
 
 
@@ -32,10 +19,10 @@ window.addEventListener("load", scrollHandler);
 function scrollHandler() {
   var currentScrollPos = window.pageYOffset;
 
-  if (currentScrollPos > scrollPos && currentScrollPos > offset) { // ak sme posunuli pod určitý bod
+  if (currentScrollPos > offset) { // ak sme posunuli pod určitý bod
     navBar.classList.add("small"); // pridajte triedu pre menší navigačný panel
     navBar.style.transition = "all 0.5s ease-in-out"; // pridajte transition
-  } else if (currentScrollPos < (scrollPos - 7)) { // ak sme posunuli nad určitý bod
+  } else if (currentScrollPos < offset) { // ak sme posunuli nad určitý bod
     navBar.classList.remove("small"); // odstráňte triedu pre menší navigačný panel
     navBar.style.transition = "all 0.5s ease-in-out"; // pridajte transition
   }
