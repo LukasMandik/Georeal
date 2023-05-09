@@ -6,7 +6,6 @@
 
 {% block content %}
 <div class="main_home_container">
-
     <div class="slideshow-container">
         <div class="mySlides fade">
             <img src="{% static 'media/2360943.jpg' %}">
@@ -255,10 +254,24 @@ let autoSlidesInterval = setInterval(autoSlides, 5000); // Zmena fotiek každé 
 {#        }#}
 {#        setTimeout(typeWriter, 40); // Adjust this value to change typing speed#}
 {#    }#}
-{#}#}
 {##}
 {#typeWriter();#}
 {##}
 {#</script>#}
+
+
+<script>
+
+function checkDarkMode() {
+  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (isDarkMode) {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+}
+
+checkDarkMode(); // volanie funkcie na začiatku
+</script>
 
 {% endblock %}

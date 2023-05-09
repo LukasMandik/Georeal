@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap') format('woff2');
-  font-display: swap;
-}
 /*Change text in autofill textbox*/
 input:-webkit-autofill{
     -webkit-text-fill-color: #232323 !important;
@@ -36,6 +30,19 @@ body{
   	background-color: var(--primary-color1);
 	color: var(--primary-color2);
 }
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  	body {
+		background-color: #2f2f2f;
+		color: #c2c2c2;
+	  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--primary-color1);
+    color: var(--primary-color2);
+  }
+}
 
 /*Navbar*/
 /*	.main_navbar{*/
@@ -50,18 +57,25 @@ body{
 .main_navbar{
 	width: 100%;
 	height: 120px;
-	background: transparent;
+	background-color: transparent;
 	position: fixed;
 	top: 0;
 	left: 0;
 	padding: 12px;
 	z-index: 100;
+	transition: background-color 0.2s ease-in-out,
+				height 0.5s ease-in-out;
 }
 
 .main_navbar.small {
   	height: 48px;
-	background: linear-gradient(to bottom, rgba(59, 59, 59, 0.89), rgba(59, 59, 59, 0.82));
+	background-color: rgba(59, 59, 59, 0.70);
+	backdrop-filter: blur(5px);
+	backface-visibility: hidden;
+	transform: translateZ(0px);
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+	transition: background-color 0.2s ease-in-out,
+				height 0.5s ease-in-out;
 	/*opacity: 0;*/
 	/*pointer-events: none;*/
 
@@ -259,6 +273,11 @@ li.dropdown{
 	max-width: 600px;
 	padding-bottom: 30px;
 }
+@media (prefers-color-scheme: dark) {
+  .right_home_container {
+	background: linear-gradient(to bottom, rgba(58, 58, 58, 0.34), rgba(58, 58, 58, 0.8));
+  }
+}
 .kontakt_container{
 	position: relative;
 	transform: translateX(0);
@@ -288,6 +307,14 @@ li.dropdown{
 	align-content: center;
 	max-width: 600px;
 }
+@media (prefers-color-scheme: dark) {
+  .right_home_container,
+  .address_container,
+  .down_home_container{
+	background: linear-gradient(to bottom, rgba(58, 58, 58, 0.34), rgba(58, 58, 58, 0.8));
+  }
+}
+
 .address_container .up_address_container h1{
 	color: rgba(255, 171, 59, 0.93);
 	font-size: 32px;
@@ -1138,20 +1165,7 @@ li.dropdown{
  }
 
 
-.container_photo{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	height: 100%;
-	min-height: 100vh;
-    /*margin: 5px auto;*/
-    text-align: justify;
-	z-index: 10;
-	background-color: rgba(3, 3, 3, 0.65);
-	/*transition: .3s ease-in-out;*/
-	/*transition: background-color 0.5s ease-in-out, width 0.5s ease-in-out;*/
-}
+
 .text_title{
 	font-size: 23px;
 	text-transform: uppercase;
