@@ -56,7 +56,7 @@ body{
 
 .main_navbar{
 	width: 100%;
-	height: 120px;
+	height: 160px;
 	background-color: transparent;
 	position: fixed;
 	top: 0;
@@ -70,9 +70,11 @@ body{
 .main_navbar.small {
   	height: 48px;
 	background-color: rgba(59, 59, 59, 0.70);
-	backdrop-filter: blur(5px);
+	/*backdrop-filter: blur(5px);*/
 	backface-visibility: hidden;
 	transform: translateZ(0px);
+	-webkit-backdrop-filter: blur(5px) saturate(1.2);
+	backdrop-filter: blur(5px) saturate(1.2);
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 	transition: background-color 0.2s ease-in-out,
 				height 0.5s ease-in-out;
@@ -103,7 +105,7 @@ body{
 
 .main_navbar .logo img{
 	width: 12rem;
-	margin: 0 2rem;
+	margin: 5px 2rem;
 }
 
 .main_navbar .menu ul{
@@ -383,6 +385,7 @@ li.dropdown{
 	flex-direction: column;
 	text-align: center;
 	margin: 0 auto;
+	padding: 0 20px 0 20px ;
 }
 
 /*.title_home_container h2{*/
@@ -398,6 +401,7 @@ li.dropdown{
     transition: 1s;
 	color: rgba(255, 171, 59, 0.93);
 	font-size: 23px;
+
 }
 
 
@@ -1378,7 +1382,7 @@ footer p {
 	/*}*/
 
 	.item_home_container p{
-		font-size: 13px;
+		font-size: 18px;
 	}
 	#kontakt .item_home_container2 p{
 		font-size: 14px;
