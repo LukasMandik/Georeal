@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d^jg3*hfr)z(pit$s6*=opsc)pjpt2uw@er(t%_zy&5yalhtmt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["geo-real.onrender.com"]
 
 
 # Application definition
