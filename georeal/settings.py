@@ -144,6 +144,7 @@ if not DEBUG:
 
 MEDIA_URL = '/images/'
 
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
