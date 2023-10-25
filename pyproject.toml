@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "georeal"
+version = "0.1.0"
+description = ""
+authors = ["LukasMandik <swipe47@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+whitenoise = {extras = ["brotli"], version = "^6.6.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
