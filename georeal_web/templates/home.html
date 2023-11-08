@@ -14,10 +14,14 @@
     </div>
     <div class="top_home_container">
         <div class="title_home_container">
-            <h2 id="typewriter">GEOREAL Vám prináša prispôsobené <strong>geodetické</strong> služby</h2>
+            <h1>GEOREAL</h1>
+            <h1>Vám prináša prispôsobené</h1>
+            <h1><strong>geodetické</strong> služby</h1>
         </div>
         <div class="item_home_container">
-            <p>Nerozhoduje, aký veľký rozsah zákazky nám zveríte, či pôjde o niekoľko metrov alebo kilometrov, spoločnost Georeal zabezpečí rýchle a kvalitné riešenie za nekonkurenčnú cenu.</p>
+            <p>Nerozhoduje, aký veľký rozsah zákazky nám zveríte,</p>
+            <p>či pôjde o niekoľko metrov alebo kilometrov,</p>
+            <p>spoločnost Georeal zabezpečí rýchle a kvalitné riešenie za nekonkurenčnú cenu.</p>
             <p>- Viac ako 30 rokov odbornej praxe za dostupné ceny</p>
             <p>- neuctujeme dph</p>
         </div>
@@ -26,14 +30,14 @@
 
 <section id="sluzby">
 
-    <div class="sluzby_container hidden2">
-        <div class="title_home_container">
+    <div class="sluzby_container">
+        <div class="title_home_container ">
             <h1>PONÚKANÉ SLUŽBY</h1>
             <a href="#sluzby"><i class="fas fa-chevron-down"></i></a>
         </div>
     </div>
 
-    <div class="right_home_container hidden">
+    <div class="right_home_container">
         <div class="title_home_container">
             <h2>GEOMETRICKÉ PLÁNY:</h2>
         </div>
@@ -49,7 +53,7 @@
         </div>
     </div>
 
-    <div class="down_home_container hidden2">
+    <div class="down_home_container">
         <div class="title_home_container">
             <h2>INŽINIERSKA GEODÉZIA:</h2>
         </div>
@@ -63,14 +67,14 @@
 </section>
 
 <section id="kontakt">
-    <div class="kontakt_container hidden2">
+    <div class="kontakt_container">
         <div class="title_home_container">
             <h1>KONTAKT</h1>
             <a href="#kontakt"><i class="fas fa-chevron-down"></i></a>
         </div>
     </div>
 
-    <div class="address_container hidden">
+    <div class="address_container">
         <div class="up_address_container">
             <div class="title_home_container2">
                 <h1>Ozvite sa nám</h1>
@@ -92,39 +96,12 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2198.2111596300256!2d18.763811704891722!3d48.726666966877936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714df4e5e4d88a1%3A0x60b93e1df7a66198!2zMS4gbcOhamEgNDQ5Lzk1LCA5NzIgNTEgSGFuZGxvdsOh!5e0!3m2!1ssk!2ssk!4v1683456749105!5m2!1ssk!2ssk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-
-
-{#    <div class="login_container">#}
-{#        <form action="#" method="post">#}
-{#            <p>#}
-{#                <input type="text" id="name" name="name" required>#}
-{#                <label for="name">Meno:</label>#}
-{#            </p>#}
-{#            <p>#}
-{#                <input type="email" id="email" name="email" required>#}
-{#                <label for="email">E-mail:</label>#}
-{#            </p>#}
-{#            <p>#}
-{#                <input id="message" name="message" required>#}
-{#                <label for="message">Správa:</label>#}
-{#            </p>#}
-{#            <button type="submit">Odoslať</button>#}
-{#        </form>#}
-{#    </div>#}
 </section>
 
 </div>
-<script>
-    const labels = document.querySelectorAll(".login_container form p label");
-
-    labels.forEach((label) => {
-        label.innerHTML = `<span>${label.innerText}</span>`;
-        label.querySelector("span").style.transitionDelay = "0ms";
-    });
-</script>
 
 
-<script>
+<!-- <script>
   document.addEventListener('scroll', function () {
     const topContainer = document.querySelector('.top_home_container');
     const sluzbyContainer = document.querySelector('.sluzby_container');
@@ -179,49 +156,12 @@
     $(document).ready(function() {
         $('.title_home_container h2').addClass('centered');
     });
-</script>
+</script> -->
 
-
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-
-// Automatické prechádzanie fotiek
-function autoSlides() {
-  plusSlides(1);
-}
-
-let autoSlidesInterval = setInterval(autoSlides, 5000); // Zmena fotiek každé 2 sekundy (2000 ms)
-</script>
 
 
 
 <script>
-
 function checkDarkMode() {
   const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   if (isDarkMode) {

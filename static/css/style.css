@@ -75,7 +75,7 @@ body{
 
 .main_navbar{
 	width: 100%;
-	height: 160px;
+	height: 140px;
 	background-color: rgba(59, 59, 59, 0.70);
 	position: fixed;
 	top: 0;
@@ -86,10 +86,9 @@ body{
 				height 0.5s ease-in-out;
 }
 
-.main_navbar.small {
-  	height: 48px;
+/* .main_navbar.small {
+  	height: 60px;
 	background-color: rgba(59, 59, 59, 0.70);
-	/*backdrop-filter: blur(5px);*/
 	backface-visibility: hidden;
 	transform: translateZ(0px);
 	-webkit-backdrop-filter: blur(5px) saturate(1.2);
@@ -97,10 +96,9 @@ body{
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 	transition: background-color 0.2s ease-in-out,
 				height 0.5s ease-in-out;
-	/*opacity: 0;*/
-	/*pointer-events: none;*/
 
-}
+
+} */
 
 .main_navbar .inner_navbar{
 	display: flex;
@@ -123,7 +121,7 @@ body{
 }
 
 .main_navbar .logo img{
-	width: 12rem;
+	width: 10rem;
 	margin: 5px 2rem;
 }
 
@@ -388,16 +386,6 @@ li.dropdown{
 	margin: 20px 0;
 	width: 100%;
 }
-.hidden {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity 1s, transform 1s;
-}
-.hidden2 {
-  opacity: 0;
-  transform: translateX(100%);
-  transition: opacity 1s, transform 1s;
-}
 
 
 
@@ -414,23 +402,20 @@ li.dropdown{
 /*	margin: 20px auto;*/
 /*}*/
 
-.title_home_container h2 {
-	opacity: 0;
-	margin: 20px auto 5px auto ;
-    position: relative;
-    left: -300px;
-	object-position: 50% 50%;
-    transition: 1s;
+.title_home_container h1 {
+	opacity: 1;
+	/* margin: 0 auto 5px auto ; */
+    /* transition: 1s; */
 	color: rgba(255, 171, 59, 0.93);
 	font-size: 23px;
 
 }
 
 
-.title_home_container h2.centered {
+/* .title_home_container h2.centered {
     left: 0;
 	opacity: 1;
-}
+} */
 
 
 
@@ -455,6 +440,7 @@ li.dropdown{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-top: 40px;
 }
 
 .item_home_container p{
@@ -463,17 +449,17 @@ li.dropdown{
 	align-items: baseline;
 	text-align: justify-all;
 	width: 90%;
-	margin: 10px auto;
+	/* margin: 10px auto; */
 	letter-spacing: 1px;
 	font-size: 18px;
 	transition: 0.5s;
 	color: var(--primary-color2);
 }
-.item_home_container p.centered{
+/* .item_home_container p.centered{
 	opacity: 1;
 	display: flex;
 	text-align: justify;
-}
+} */
 
 .item_home_container p i{
 	display: flex;
