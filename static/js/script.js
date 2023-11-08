@@ -71,7 +71,7 @@ $(document).ready(function() {
     
       start: "top 0%",
       end: "center 0%",
-      markers: true,
+      // markers: true,
       // toggleClass: "red",
       scrub: 1,
       // pin: true,
@@ -121,7 +121,7 @@ $(document).ready(function() {
         trigger: ".item_home_container",
         end: "center 40%",
         start: "top 50%",
-        markers: true,
+        // markers: true,
         // toggleClass: "red",
         scrub: 1,
         // pin: true,
