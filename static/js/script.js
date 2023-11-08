@@ -46,7 +46,7 @@ $(document).ready(function() {
     
       start: "top ",
       end: "center 0%",
-      markers: true,
+      // markers: true,
       // toggleClass: "red",
       scrub: 1,
       // pin: true,
