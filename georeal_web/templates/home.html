@@ -27,11 +27,26 @@
     </div> -->
 
     <div class="video_container">
-    <video  autoplay loop>
-      <source src="{% static 'media/georeal2.mp4' %}" type="video/mp4">
-      Tento prohlížeč nepodporuje přehrávání videa.
-    </video>
+      <video id="myVideo" autoplay loop muted>
+        <source src="{% static 'media/georeal2.mp4' %}" type="video/mp4">
+        Tento prohlížeč nepodporuje přehrávání videa.
+      </video>
     </div>
+    
+    <script>
+    // Získání reference na video element
+    const video = document.getElementById("myVideo");
+    
+    // Přidejte posluchač události "canplay" k detekci, kdy video je připraveno k přehrávání.
+    video.addEventListener("canplay", function() {
+      // Odebrat "muted" atribut, což umožní zvuk videa (pokud je k dispozici)
+      video.removeAttribute("muted");
+    
+      // Spustit video, jakmile je načteno a připraveno
+      video.play();
+    });
+    </script>
+    
 
     <div class="top_home_container">
         <div class="title_home_container">
