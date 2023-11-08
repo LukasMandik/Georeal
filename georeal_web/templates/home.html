@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="main_home_container">
-    <div class="slideshow-container">
+    <!-- <div class="slideshow-container">
         <div class="mySlides fade">
             <img src="{% static 'media/2360943.jpg' %}">
         </div>
@@ -24,6 +24,13 @@
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
+    </div> -->
+
+    <div class="video_container">
+    <video  autoplay loop>
+      <source src="{% static 'media/georeal2.mp4' %}" type="video/mp4">
+      Tento prohlížeč nepodporuje přehrávání videa.
+    </video>
     </div>
 
     <div class="top_home_container">
@@ -195,11 +202,6 @@
     });
 </script>
 
-{#<script>#}
-{#    $(document).ready(function() {#}
-{#        $('.item_home_container p').addClass('centered');#}
-{#    });#}
-{#</script>#}
 
 <script>
 let slideIndex = 1;
@@ -237,29 +239,6 @@ function autoSlides() {
 let autoSlidesInterval = setInterval(autoSlides, 5000); // Zmena fotiek každé 2 sekundy (2000 ms)
 </script>
 
-{#<script>#}
-{#const typewriterElement = document.getElementById('typewriter');#}
-{#const text = typewriterElement.innerHTML;#}
-{#typewriterElement.innerHTML = '';#}
-{#let currentIndex = 0;#}
-{##}
-{#function typeWriter() {#}
-{#    if (currentIndex < text.length) {#}
-{#        const currentCharacter = text.charAt(currentIndex);#}
-{#        if (currentCharacter === '<') {#}
-{#            const closingTagIndex = text.indexOf('>', currentIndex);#}
-{#            typewriterElement.innerHTML += text.slice(currentIndex, closingTagIndex + 1);#}
-{#            currentIndex = closingTagIndex + 1;#}
-{#        } else {#}
-{#            typewriterElement.innerHTML += currentCharacter;#}
-{#            currentIndex++;#}
-{#        }#}
-{#        setTimeout(typeWriter, 40); // Adjust this value to change typing speed#}
-{#    }#}
-{##}
-{#typeWriter();#}
-{##}
-{#</script>#}
 
 
 <script>

@@ -43,7 +43,9 @@ body{
     color: var(--primary-color2);
   }
 }
-
+.video_container{
+	width: 100%;
+}
 /*Navbar*/
 /*	.main_navbar{*/
 /*		height: 170px;*/
