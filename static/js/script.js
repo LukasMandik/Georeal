@@ -42,11 +42,11 @@ $(document).ready(function() {
     duration: 6,
     rotate: 180,
     scrollTrigger: {
-      trigger: ".logo",
+      trigger: ".inner_navbar",
     
-      start: "top 0%",
+      start: "top -20px",
       end: "center 0%",
-      // markers: true,
+      markers: true,
       // toggleClass: "red",
       scrub: 1,
       // pin: true,
@@ -69,7 +69,7 @@ $(document).ready(function() {
     scrollTrigger: {
       trigger: ".main_navbar",
     
-      start: "top 0%",
+      start: "top -20px",
       end: "center 0%",
       // markers: true,
       // toggleClass: "red",
