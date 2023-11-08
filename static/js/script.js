@@ -42,11 +42,11 @@ $(document).ready(function() {
     duration: 6,
     rotate: 180,
     scrollTrigger: {
-      trigger: ".inner_navbar",
+      trigger: ".video_container",
     
-      start: "top -20px",
+      start: "top ",
       end: "center 0%",
-      markers: true,
+      // markers: true,
       // toggleClass: "red",
       scrub: 1,
       // pin: true,
@@ -64,18 +64,18 @@ $(document).ready(function() {
 
   gsap.to(".main_navbar", {
     y: -90,
-    duration: 6,
+    duration: 1,
     // background: black,
     scrollTrigger: {
-      trigger: ".main_navbar",
+      trigger: ".video_container",
     
-      start: "top -20px",
+      start: "top ",
       end: "center 0%",
       // markers: true,
       // toggleClass: "red",
       scrub: 1,
       // pin: true,
-      toggleActions: "restart none none none",
+      toggleActions: "complete none none none",
       //play pause resume reverse restart reset complete none
       //           onEnter onLeave onEnterBack onLeaveBack
     }
@@ -118,7 +118,7 @@ $(document).ready(function() {
       stagger: 0.25,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".item_home_container",
+        trigger: ".title_home_container",
         end: "center 40%",
         start: "top 50%",
         // markers: true,
