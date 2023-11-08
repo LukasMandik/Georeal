@@ -47,6 +47,12 @@ body{
 
   }
 }
+
+.endpoint{
+	position: absolute;
+	top: 40px;
+	height: 80px;
+}
 .video_container {
 	/* display: flex;
 	justify-content: center;

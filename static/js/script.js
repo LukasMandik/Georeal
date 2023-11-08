@@ -39,14 +39,14 @@ $(document).ready(function() {
     y: -60,
     opacity: 0,
     scale: 0,
-    duration: 6,
-    rotate: 180,
+    duration: 3,
+    rotate: 360,
     scrollTrigger: {
-      trigger: ".video_container",
+      trigger: ".endpoint",
     
       start: "top ",
       end: "center 0%",
-      // markers: true,
+      markers: true,
       // toggleClass: "red",
       scrub: 1,
       // pin: true,
@@ -65,9 +65,8 @@ $(document).ready(function() {
   gsap.to(".main_navbar", {
     y: -90,
     duration: 1,
-    // background: black,
     scrollTrigger: {
-      trigger: ".video_container",
+      trigger: ".endpoint",
     
       start: "top ",
       end: "center 0%",
