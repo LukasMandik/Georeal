@@ -36,18 +36,17 @@ $(document).ready(function() {
 
 
   gsap.to(".logo", {
-    y: -60,
+    y: 40,
     opacity: 0,
     scale: 0,
     duration: 3,
-    rotate: 360,
+    // rotate: 360,
     scrollTrigger: {
       trigger: ".endpoint",
     
       start: "top ",
       end: "center 0%",
       // markers: true,
-      // toggleClass: "red",
       scrub: 1,
       // pin: true,
       toggleActions: "restart none none none",
@@ -64,19 +63,17 @@ $(document).ready(function() {
 
   gsap.to(".main_navbar", {
     y: -90,
+    backgroundColor: "rgba(32, 32, 32, 0.95)",
     duration: 1,
     scrollTrigger: {
       trigger: ".endpoint",
-    
       start: "top ",
       end: "center 0%",
-      // markers: true,
-      // toggleClass: "red",
+      // toggleClass: "black",
       scrub: 1,
+      // markers: true,
       // pin: true,
-      toggleActions: "complete none none none",
-      //play pause resume reverse restart reset complete none
-      //           onEnter onLeave onEnterBack onLeaveBack
+      toggleActions: "play resume reverse reverse",
     }
   })
 })
