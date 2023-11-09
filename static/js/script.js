@@ -93,7 +93,7 @@ $(document).ready(function() {
       scrollTrigger: {
         trigger: ".main_title_container",
         end: "center 50%",
-        start: "top 65%",
+        start: "center 60%",
         // markers: true,
         scrub: true,
         toggleActions: "restart none none none",
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
   gsap.from(paragraphs, {
     duration: 1,
-    y: (index) => 10 + index * 30, // Add the height of the previous paragraphs
+    y: 10,
     stagger: 0.85,
     opacity: 0,
     scale: 0.9,
