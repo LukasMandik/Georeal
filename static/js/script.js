@@ -103,23 +103,24 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
-  const title = ".item_home_container p";
-  
+  const paragraphs = ".item_home_container p";
 
-  gsap.from(title,{
-      duration: 4,
-      x:10,
-      stagger: 0.85,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".main_title_container",
-        end: "center 30%",
-        start: "top 50%",
-        // markers: true,
-        // toggleClass: "red",
-        scrub: 1,
-        // pin: true,
-        toggleActions: "restart none none none",
+  gsap.from(paragraphs, {
+    duration: 1,
+    y: (index) => 10 + index * 30, // Add the height of the previous paragraphs
+    stagger: 0.85,
+    opacity: 0,
+    scale: 0.9,
+    scrollTrigger: {
+      trigger: paragraphs,
+      start: "top 70%",
+      // markers: true,
+      scrub: 1,
+      toggleActions: "restart none none none",
+    },
+    onComplete: () => {
+      // Reset the translateY of paragraphs after the animation completes
+      gsap.set(paragraphs, { y: 0 });
     }
-})  
-})
+  });
+});
