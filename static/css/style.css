@@ -157,7 +157,7 @@ body{
 	background: var(--primary-color1);
 	display: block;
 	margin: auto;
-	transition: 0.5s;
+	/* transition: 0.5s; */
 }
 .main_navbar .menu ul li:hover::after{
 	width: 100%;
