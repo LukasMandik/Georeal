@@ -86,7 +86,7 @@ $(document).ready(function() {
   
 
   gsap.from(title,{
-      duration: 1,
+      duration: 3,
       x:100,
       stagger: 0.25,
       opacity: 0,
@@ -94,10 +94,8 @@ $(document).ready(function() {
         trigger: ".title_home_container",
         end: "center 50%",
         start: "top 60%",
-        // markers: true,
-        // toggleClass: "red",
-        scrub: 1,
-        // pin: true,
+        markers: true,
+        scrub: true,
         toggleActions: "restart none none none",
     }
 })  
