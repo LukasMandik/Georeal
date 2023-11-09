@@ -92,8 +92,8 @@ $(document).ready(function() {
       opacity: 0,
       scrollTrigger: {
         trigger: ".title_home_container",
-        end: "center 40%",
-        start: "top 50%",
+        end: "center 50%",
+        start: "top 60%",
         // markers: true,
         // toggleClass: "red",
         scrub: 1,
@@ -109,13 +109,13 @@ $(document).ready(function() {
   
 
   gsap.from(title,{
-      duration: 1,
-      x:100,
-      stagger: 0.25,
+      duration: 4,
+      x:10,
+      stagger: 0.85,
       opacity: 0,
       scrollTrigger: {
         trigger: ".title_home_container",
-        end: "center 40%",
+        end: "center 30%",
         start: "top 50%",
         // markers: true,
         // toggleClass: "red",
