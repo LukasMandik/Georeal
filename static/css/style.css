@@ -48,28 +48,6 @@ body{
   }
 }
 
-
-
-.endpoint{
-	position: absolute;
-	top: 40px;
-	height: 80px;
-}
-.video_container {
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
-	/* width: 100%; */
-	/* height: 100svh; */
-
-  }
-  
-  .video_container video {
-	width: 100svw;
-	/* height: 100svh; */
-	/* max-width: 100%; */
-	/* max-height: 100%; */
-  }
   
 /*Navbar*/
 .main_navbar{
@@ -158,29 +136,69 @@ body{
       font-size: 24px;
     }
 
+
+/* content */
+
+
 .main_home_container{
 	width: 100%;
 	overflow-x: hidden;
 }
 
-.home_container{
-	text-align: center;
-	max-width: 800px;
-	display: flex;
-	margin: 10px auto 80px auto;
-	/*flex-direction: column;*/
-	/*flex-direction: row-reverse*/
-	align-items: start;
-	/*align-content: center;*/
-	justify-content: center;
-	flex-wrap: wrap;
+.endpoint{
+	position: absolute;
+	top: 40px;
+	height: 80px;
 }
+.video_container {
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
+	/* width: 100%; */
+	height: 100svh;
+
+  }
+  
+  .video_container video {
+	width: 100svw;
+	/* height: 100svh; */
+	/* max-width: 100%; */
+	/* max-height: 100%; */
+	z-index: -50;
+  }
+
+.main_title_container{
+	position: absolute;
+	bottom: 0;
+	text-align: left;
+	margin: 0 auto;
+	padding: 20px 20px 20px 40px ;
+}
+
+
+
+.main_title_container h1 {
+	opacity: 1;
+	text-align: left;
+	/* margin: 0 auto 5px auto ; */
+    /* transition: 1s; */
+	color: rgba(255, 171, 59, 0.93);
+	font-size: 1.6rem;
+	z-index: 10;
+
+}
+
+.main_title_container h1:first-of-type {
+	font-size: 2.3rem;
+}
+
+
 .top_home_container{
 	width: 90svw;
 	max-width: 600px;
-	height: 100svh;
+	/* height: 100svh; */
 	/*background-color: rgba(168, 168, 168, 0.1);*/
-	margin: -18svh auto 0 auto;
+	margin: 0 auto 0 auto;
 	border-radius: 5px;
 
 
@@ -193,9 +211,6 @@ body{
 	padding: 0 20px 0 20px ;
 }
 
-/*.title_home_container h2{*/
-/*	margin: 20px auto;*/
-/*}*/
 
 .top_home_container .title_home_container h1 {
 	opacity: 1;
@@ -206,12 +221,20 @@ body{
 	font-size: 1.6rem;
 
 }
-
-.top_home_container .title_home_container h1:first-of-type {
+/* .top_home_container .title_home_container h1:first-of-type {
 
 	font-size: 2.4rem;
 
-}
+} */
+
+
+
+
+/* .top_home_container .title_home_container h1:first-of-type {
+
+	font-size: 2.4rem;
+
+} */
 
 .item_home_container{
 	display: flex;

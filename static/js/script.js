@@ -82,19 +82,19 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
-  const title = ".title_home_container h1";
+  const title = ".main_title_container h1";
   
 
   gsap.from(title,{
-      duration: 3,
+      duration: 2,
       x:100,
       stagger: 0.25,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".title_home_container",
+        trigger: ".main_title_container",
         end: "center 50%",
-        start: "top 60%",
-        markers: true,
+        start: "top 65%",
+        // markers: true,
         scrub: true,
         toggleActions: "restart none none none",
     }
@@ -112,7 +112,7 @@ $(document).ready(function() {
       stagger: 0.85,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".title_home_container",
+        trigger: ".main_title_container",
         end: "center 30%",
         start: "top 50%",
         // markers: true,
