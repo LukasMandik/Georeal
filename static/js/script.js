@@ -91,12 +91,13 @@ $(document).ready(function() {
       stagger: 0.25,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".main_title_container",
-        end: "center 35%",
-        start: "center 70%",
+        trigger: ".endpoint",
+        end: "center -200svh",
+        start: "center 70svh",
         // markers: true,
         scrub: true,
-        toggleActions: "restart none none none",
+        toggleActions: "pause none none none",
+        // play pause resume reverse restart reset complete
     }
 })  
 })
