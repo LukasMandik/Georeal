@@ -94,7 +94,7 @@ $(document).ready(function() {
         trigger: ".endpoint",
         end: "center -200svh",
         start: "center 70svh",
-        markers: true,
+        // markers: true,
         scrub: true,
         toggleActions: "pause none none none",
         // play pause resume reverse restart reset complete
@@ -172,41 +172,40 @@ $(document).ready(function() {
 
 
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function () {
+  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container");
 
-  const images = [];
-  
-  // Vyberte všechny elementy s třídou .
-  const centerHomeContainerElements = document.querySelectorAll(".item_home_container p");
-
-  // Přidejte výsledky do pole images
-  images.push(...centerHomeContainerElements);
+  paragraphs.forEach((paragraph) => {
+    gsap.set(paragraph, { right: 0 });
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.scale = 1;
-            entry.target.style.filter = "grayscale(0)";
+            gsap.to(paragraph, {
+              opacity: 1,
+              scale: 1,
+              // right: 100,
+              duration: 0.5,
+            });
           } else {
-            entry.target.style.opacity = 0.2;
-            entry.target.style.scale = 0.9;
-            entry.target.style.filter = "grayscale(0.5)";
+            gsap.to(paragraph, {
+              opacity: 0.2,
+              scale: 0.9,
+              // right: 0,
+              duration: 0.5,
+            });
           }
         });
       },
       {
-        threshold: 0.25
+        threshold: 0.25,
       }
     );
-    
-    images.forEach((el, i) => {
-      observer.observe(el);
-    });
-    
-    imagesLoaded(images, () => {
-      document.body.style.overflowY = "auto";
-      // loading.remove();
-    });
-    })
+
+    observer.observe(paragraph);
+  });
+
+  // Pokud používáte imagesLoaded, zjistěte, zda je již nainstalováno
+  // a použijte ho podle potřeby.
+});

@@ -214,14 +214,14 @@ body{
 	border-radius: 5px;
 }
 
-.item_home_container{
+.item_home_container, .item_home_container2{
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
 	justify-content: center;
 }
-
-.item_home_container p{
+.item_home_container p,
+.item_home_container2 p{
 	display: flex;
 	align-items: baseline;
 	/* width: 90%; */
@@ -229,10 +229,7 @@ body{
 	letter-spacing: 1px;
 	font-size: 1.rem;
 	color: var(--primary-color2);
-	transition: opacity 0.8s ease-in-out, 
-	scale 0.5s ease-in-out,
-	filter 0.2s step-end;
-	will-change: opacity, scale ,filter;
+
 }
 
 #sluzby{
@@ -283,7 +280,8 @@ body{
 
 
 
-.item_home_container p i{
+.item_home_container p i,
+.item_home_container2 p i{
 	display: flex;
 	justify-content: center;
 	transition: 0.5s;
@@ -304,10 +302,7 @@ body{
 	max-width: 600px;
 	padding: 15px 20px 10px 20px;
 	margin-bottom: 20px;
-	transition: opacity 0.8s ease-in-out, 
-	scale 0.5s ease-in-out,
-	filter 0.2s step-end;
-	will-change: opacity, scale ,filter;
+
 }
 
 .down_home_container{
