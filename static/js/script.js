@@ -94,7 +94,7 @@ $(document).ready(function() {
         trigger: ".main_title_container",
         end: "center 35%",
         start: "center 70%",
-        markers: true,
+        // markers: true,
         scrub: true,
         toggleActions: "restart none none none",
     }
