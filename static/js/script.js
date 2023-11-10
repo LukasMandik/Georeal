@@ -124,27 +124,89 @@ $(document).ready(function() {
 })  
 })
 
-
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
-  const paragraphs = ".item_home_container p";
+  const title = ".kontakt_container .title_home_container h1";
+  
 
-  gsap.from(paragraphs, {
-    duration: 1,
-    y: 10,
-    stagger: 0.85,
-    opacity: 0,
-    scale: 0.9,
-    scrollTrigger: {
-      trigger: paragraphs,
-      start: "top 70%",
-      // markers: true,
-      scrub: 1,
-      toggleActions: "restart none none none",
-    },
-    onComplete: () => {
-      // Reset the translateY of paragraphs after the animation completes
-      gsap.set(paragraphs, { y: 0 });
+  gsap.from(title,{
+      duration: 2,
+      x:100,
+      stagger: 0.25,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: title,
+        end: "center 500svh",
+        start: "center 700svh",
+        // markers: true,
+        scrub: true,
+        toggleActions: "pause none none none",
+        // play pause resume reverse restart reset complete
     }
-  });
-});
+})  
+})
+// $(document).ready(function() {
+//   gsap.registerPlugin(ScrollTrigger);
+//   const paragraphs = ".item_home_container p";
+
+//   gsap.from(paragraphs, {
+//     duration: 1,
+//     y: 10,
+//     stagger: 0.85,
+//     opacity: 0,
+//     scale: 0.9,
+//     scrollTrigger: {
+//       trigger: paragraphs,
+//       start: "top 70%",
+//       // markers: true,
+//       scrub: 1,
+//       toggleActions: "restart none none none",
+//     },
+//     onComplete: () => {
+//       // Reset the translateY of paragraphs after the animation completes
+//       gsap.set(paragraphs, { y: 0 });
+//     }
+//   });
+// });
+
+
+
+
+$(document).ready(function() {
+
+  const images = [];
+  
+  // Vyberte všechny elementy s třídou .
+  const centerHomeContainerElements = document.querySelectorAll(".item_home_container p");
+
+  // Přidejte výsledky do pole images
+  images.push(...centerHomeContainerElements);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.scale = 1;
+            entry.target.style.filter = "grayscale(0)";
+          } else {
+            entry.target.style.opacity = 0.2;
+            entry.target.style.scale = 0.9;
+            entry.target.style.filter = "grayscale(0.5)";
+          }
+        });
+      },
+      {
+        threshold: 0.25
+      }
+    );
+    
+    images.forEach((el, i) => {
+      observer.observe(el);
+    });
+    
+    imagesLoaded(images, () => {
+      document.body.style.overflowY = "auto";
+      // loading.remove();
+    });
+    })
