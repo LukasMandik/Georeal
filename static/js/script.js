@@ -94,6 +94,28 @@ $(document).ready(function() {
         trigger: ".endpoint",
         end: "center -200svh",
         start: "center 70svh",
+        markers: true,
+        scrub: true,
+        toggleActions: "pause none none none",
+        // play pause resume reverse restart reset complete
+    }
+})  
+})
+
+$(document).ready(function() {
+  gsap.registerPlugin(ScrollTrigger);
+  const title = ".sluzby_container .title_home_container h1";
+  
+
+  gsap.from(title,{
+      duration: 2,
+      x:100,
+      stagger: 0.25,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: title,
+        end: "center 500svh",
+        start: "center 700svh",
         // markers: true,
         scrub: true,
         toggleActions: "pause none none none",
@@ -101,6 +123,7 @@ $(document).ready(function() {
     }
 })  
 })
+
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
