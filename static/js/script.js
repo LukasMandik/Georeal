@@ -92,9 +92,9 @@ $(document).ready(function() {
       opacity: 0,
       scrollTrigger: {
         trigger: ".main_title_container",
-        end: "center 50%",
-        start: "center 60%",
-        // markers: true,
+        end: "center 35%",
+        start: "center 70%",
+        markers: true,
         scrub: true,
         toggleActions: "restart none none none",
     }
