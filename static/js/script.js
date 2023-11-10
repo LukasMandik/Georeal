@@ -173,7 +173,7 @@ $(document).ready(function() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container");
+  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .up_address_container");
 
   paragraphs.forEach((paragraph) => {
     gsap.set(paragraph, { right: 0 });
