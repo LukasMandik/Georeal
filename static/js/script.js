@@ -63,7 +63,7 @@ $(document).ready(function() {
 
   gsap.to(".main_navbar", {
     y: -90,
-    backgroundColor: "rgba(32, 32, 32, 0.95)",
+    backgroundColor: "rgba(45, 48, 56, 0.95)",
     duration: 1,
     scrollTrigger: {
       trigger: ".endpoint",
