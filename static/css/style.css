@@ -243,6 +243,14 @@ body{
 	/* height: 100svh; */
 	background: rgba(64, 67, 76, 0.79);
 }
+
+@media (prefers-color-scheme: light) {	#sluzby{
+	background: rgba(182, 182, 182, 0.17);
+}
+
+  }
+
+
 .sluzby_container,.kontakt_container{
 	padding-top: 60px;
 	padding-bottom: 15px;
@@ -308,7 +316,7 @@ body{
 
 }
 @media (prefers-color-scheme: light) {	.center_home_container, .down_home_container{
-	  background: rgba(182, 182, 182, 0.097);
+	  background: rgba(182, 182, 182, 0.17);
   }
 
 	}
