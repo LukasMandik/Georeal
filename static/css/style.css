@@ -245,7 +245,7 @@ body{
 }
 
 @media (prefers-color-scheme: light) {	#sluzby{
-	background: rgba(182, 182, 182, 0.17);
+	background: rgba(182, 182, 182, 0.088);
 }
 
   }
@@ -316,7 +316,7 @@ body{
 
 }
 @media (prefers-color-scheme: light) {	.center_home_container, .down_home_container{
-	  background: rgba(182, 182, 182, 0.17);
+	  background: rgba(182, 182, 182, 0.067);
   }
 
 	}
