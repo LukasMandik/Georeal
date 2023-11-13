@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 
   gsap.to(".main_navbar", {
-    y: -90,
+    y: -120,
     backgroundColor: "rgba(45, 48, 56, 0.95)",
     duration: 1,
     ease: "power2.out",
