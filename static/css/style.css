@@ -14,6 +14,7 @@ input:-webkit-autofill:active{
   --primary-color1: rgba(255, 255, 255, 0.96);
   --primary-color2: #ececec;
   --primary-color3: #e6e6e6;
+  --primary-SecondColorText: rgb(182, 134, 0);
 }
 
 *{
@@ -23,7 +24,7 @@ input:-webkit-autofill:active{
 	text-decoration: none;
 	box-sizing: border-box;
 	list-style: none;
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 
 body{
@@ -85,6 +86,8 @@ body{
 .main_navbar .logo img{
 	width: 10rem;
 	margin: 5px 2rem;
+	/* filter: invert(80%) sepia(90%) saturate(6785%) hue-rotate(243deg) brightness(92%) contrast(96%); */
+	
 }
 
 .main_navbar .menu ul{
@@ -186,12 +189,12 @@ body{
   }
 
 
-.main_title_container h1 {
+.main_title_container h1, .main_title_container h2 {
 	opacity: 1;
 	text-align: left;
 	/* margin: 0 auto 5px auto ; */
     /* transition: 1s; */
-	color: rgba(255, 171, 59, 0.93);
+	color: rgba(247, 247, 247, 0.93);
 	font-size: 1.5rem;
 	letter-spacing: 1px;
 	line-height: 1;
@@ -203,6 +206,7 @@ body{
 	font-size: 2.6rem;
 	letter-spacing: 1px;
 	line-height: 1.4;
+	color: var(--primary-SecondColorText);
 
 }
 
@@ -266,10 +270,10 @@ body{
 
 
 
-.kontakt_container .title_home_container h1 , .sluzby_container .title_home_container h1 {
+.kontakt_container .title_home_container h2 , .sluzby_container .title_home_container h2 {
 	opacity: 1;
 	font-size: 2.4rem;
-	color: rgba(255, 171, 59, 0.93);
+	color: var(--primary-SecondColorText);
 
 }
 .down_home_container .title_home_container h2,
@@ -299,7 +303,7 @@ body{
 	font-size: 18px;
 	margin-right: 10px;
 	width: 23px;
-	color: rgba(255, 171, 59, 0.93);
+	color: var(--primary-SecondColorText);
 }
 
 
@@ -356,12 +360,12 @@ body{
 }
 
 
-.address_container .up_address_container h1{
-	color: rgba(255, 171, 59, 0.93);
+.address_container .up_address_container h2{
+	color: var(--primary-SecondColorText);
 	font-size: 32px;
 	margin-bottom: 5px;
 }
-.address_container .up_address_container h2{
+.address_container .up_address_container h3{
 	font-size: 18px;
 	margin-bottom: 5px;
 }
@@ -382,7 +386,7 @@ body{
 	font-size: 18px;
 	margin-right: 10px;
 	width: 23px;
-	color: rgba(255, 171, 59, 0.93);
+	color: var(--primary-SecondColorText);
 }
 #kontakt .item_home_container2 p a{
 	color: var(--primary-color2);

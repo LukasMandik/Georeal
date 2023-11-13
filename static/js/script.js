@@ -65,6 +65,7 @@ $(document).ready(function() {
     y: -90,
     backgroundColor: "rgba(45, 48, 56, 0.95)",
     duration: 1,
+    ease: "power2.out",
     scrollTrigger: {
       trigger: ".endpoint",
       start: "top ",
@@ -82,7 +83,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
-  const title = ".main_title_container h1";
+  const title = ".main_title_container h1, .main_title_container h2";
   
 
   gsap.from(title,{
@@ -90,6 +91,7 @@ $(document).ready(function() {
       x:100,
       stagger: 0.25,
       opacity: 0,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: ".endpoint",
         end: "center -200svh",
@@ -104,7 +106,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
-  const title = ".sluzby_container .title_home_container h1";
+  const title = ".sluzby_container .title_home_container h2";
   
 
   gsap.from(title,{
@@ -112,6 +114,7 @@ $(document).ready(function() {
       x:100,
       stagger: 0.25,
       opacity: 0,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: title,
         end: "center 500svh",
@@ -126,7 +129,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
-  const title = ".kontakt_container .title_home_container h1";
+  const title = ".kontakt_container .title_home_container h2";
   
 
   gsap.from(title,{
@@ -134,6 +137,7 @@ $(document).ready(function() {
       x:100,
       stagger: 0.25,
       opacity: 0,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: title,
         end: "center 500svh",
@@ -187,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
               scale: 1,
               // right: 100,
               duration: 0.5,
+              ease: "power2.out",
             });
           } else {
             gsap.to(paragraph, {
@@ -194,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
               scale: 0.9,
               // right: 0,
               duration: 0.5,
+              ease: "power2.out",
             });
           }
         });
@@ -209,3 +215,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Pokud používáte imagesLoaded, zjistěte, zda je již nainstalováno
   // a použijte ho podle potřeby.
 });
+
+
+$(document).ready(function() {
+
+    var scroll = new SmoothScroll('a[href*="#"]', {
+      speed: 1600, // nastavte rychlost scrollování podle potřeby
+      easing: 'easeInOutCubic',
+    });
+
+  });
