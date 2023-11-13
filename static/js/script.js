@@ -149,6 +149,31 @@ $(document).ready(function() {
     }
 })  
 })
+
+
+
+$(document).ready(function() {
+  gsap.registerPlugin(ScrollTrigger);
+  const title = ".faq_container .title_home_container h2";
+  
+
+  gsap.from(title,{
+      duration: 2,
+      x:100,
+      stagger: 0.25,
+      opacity: 0,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: title,
+        end: "center 500svh",
+        start: "center 700svh",
+        // markers: true,
+        scrub: true,
+        toggleActions: "pause none none none",
+        // play pause resume reverse restart reset complete
+    }
+})  
+})
 // $(document).ready(function() {
 //   gsap.registerPlugin(ScrollTrigger);
 //   const paragraphs = ".item_home_container p";
@@ -177,7 +202,7 @@ $(document).ready(function() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .up_address_container");
+  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .up_address_container, #faq .faq_content_container p");
 
   paragraphs.forEach((paragraph) => {
     gsap.set(paragraph, { right: 0 });
