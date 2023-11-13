@@ -18,7 +18,7 @@ installer==0.7.0
 jaraco.classes
 jsonschema
 keyring
-# livereload==2.7.1
+livereload
 
 more-itertools
 msgpack
