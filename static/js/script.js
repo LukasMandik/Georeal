@@ -202,7 +202,7 @@ $(document).ready(function() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .up_address_container, #faq .faq_content_container p");
+  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .up_address_container");
 
   paragraphs.forEach((paragraph) => {
     gsap.set(paragraph, { right: 0 });
@@ -241,6 +241,90 @@ document.addEventListener("DOMContentLoaded", function () {
   // a použijte ho podle potřeby.
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const paragraphs = document.querySelectorAll(" #faq .faq_content_container p:nth-child(odd)");
+
+  paragraphs.forEach((paragraph) => {
+    gsap.set(paragraph, { right: 0 });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.to(paragraph, {
+              opacity: 1,
+              // scale: 1,
+              // right: 100,
+              duration: 0.2,
+              ease: "power2.out",
+            });
+          } else {
+            gsap.to(paragraph, {
+              opacity: 0.2,
+              // scale: 0.98,
+              // right: 0,
+              duration: 0.2,
+              ease: "power2.out",
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
+    observer.observe(paragraph);
+  });
+
+  
+
+  // Pokud používáte imagesLoaded, zjistěte, zda je již nainstalováno
+  // a použijte ho podle potřeby.
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const paragraphs = document.querySelectorAll(" #faq .faq_content_container p:nth-child(even)");
+
+  paragraphs.forEach((paragraph) => {
+    gsap.set(paragraph, { right: 0 });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.to(paragraph, {
+              opacity: 1,
+              scale: 1,
+              // right: 100,
+              duration: 0.2,
+              ease: "power2.out",
+            });
+          } else {
+            gsap.to(paragraph, {
+              opacity: 0.2,
+              scale: 0.98,
+              // right: 0,
+              duration: 0.2,
+              ease: "power2.out",
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
+    observer.observe(paragraph);
+  });
+
+  
+
+  // Pokud používáte imagesLoaded, zjistěte, zda je již nainstalováno
+  // a použijte ho podle potřeby.
+});
+
 
 $(document).ready(function() {
 
@@ -250,3 +334,5 @@ $(document).ready(function() {
     });
 
   });
+
+  
