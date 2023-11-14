@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 
   gsap.to(".logo", {
-    y: 40,
+    y: -10,
     opacity: 0,
     scale: 0,
     duration: 3,
