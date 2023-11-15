@@ -52,7 +52,7 @@ body{
 /* cookies */
 .wrapper2 {
 	position: fixed;
-	bottom: 50px;
+	bottom: 20px;
 	right: -370px;
 
 	max-width: 345px;
@@ -63,7 +63,7 @@ body{
 	transition: right 0.3s ease;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 	z-index: 1000;
-	opacity: 0.9;
+	opacity: 0.95;
   }
 
 
@@ -407,6 +407,7 @@ body{
 	position: relative;
 	transform: translateX(0);
 	background: rgba(55, 58, 66, 0.79);
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.08);
 	/* margin: 20px auto; */
 	border-radius: 5px;
 	width: 90%;
@@ -659,6 +660,7 @@ footer p {
 		right: -700px ;
 		position: fixed;
 		max-width: 90%;
+		bottom: 10px;
 		/* width: 100%; */
 	  }
 
