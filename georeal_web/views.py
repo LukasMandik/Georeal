@@ -11,3 +11,7 @@ def hello_world(request):
 def home(request):
 
     return render(request, 'home.html')
+
+def cookies(request):
+
+    return render(request, 'cookies.html')
