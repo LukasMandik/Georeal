@@ -14,7 +14,7 @@ input:-webkit-autofill:active{
   --primary-color1: rgba(255, 255, 255, 0.96);
   --primary-color2: #ececec;
   --primary-color3: #e6e6e6;
-  --primary-SecondColorText: #4070f4eb;
+  --primary-SecondColorText: rgba(44, 84, 193, 0.93);
 }
 
 *{
@@ -74,11 +74,11 @@ body{
 	column-gap: 15px;
   }
   header i {
-	color: #4070f4;
+	color: var(--primary-SecondColorText);
 	font-size: 32px;
   }
   header h2 {
-	color: #4070f4;
+	color: var(--primary-SecondColorText);
 	font-weight: 500;
   }
   .wrapper2 .data {
@@ -89,7 +89,7 @@ body{
 	font-size: 16px;
   }
   .data p a {
-	color: #4070f4;
+	color: var(--primary-SecondColorText);
 	text-decoration: none;
   }
   .data p a:hover {
@@ -107,7 +107,7 @@ body{
 	color: #fff;
 	padding: 8px 0;
 	border-radius: 4px;
-	background: #4070f4;
+	background: var(--primary-SecondColorText);
 	cursor: pointer;
 	width: calc(100% / 2 - 10px);
 	transition: all 0.2s ease;
@@ -116,12 +116,12 @@ body{
 	background-color: #3d6ae6;
   }
   #declineBtn {
-	border: 2px solid #4070f4;
+	border: 2px solid var(--primary-SecondColorText);
 	background-color: #fff;
-	color: #4070f4;
+	color: var(--primary-SecondColorText);
   }
   #declineBtn:hover {
-	background-color: #4070f4;
+	background-color: var(--primary-SecondColorText);
 	color: #fff;
   }
 
@@ -131,7 +131,7 @@ body{
 .main_navbar{
 	width: 100%;
 	height: 170px;
-	background: rgba(55, 58, 66, 0.304);
+	background: rgba(20, 37, 82, 0.31);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -667,10 +667,27 @@ footer p {
 		position: fixed;
 		max-width: 90%;
 		bottom: 10px;
-		/* width: 100%; */
-	  }
+		padding: 6px 15px 8px;
+	}
+	  
+	header i {
+	font-size: 18px;
+	}
+	header h2 {
 
-	
+	font-size: 18px;
+	}
+	.wrapper2 .data {
+	margin-top: 0;
+	}
+	.wrapper2 .data p {
+	font-size: 16px;
+	}
+
+	.wrapper2 .buttons{
+	margin-top: 8px;
+	}  
+
 	.video_container {
 		display: flex;
 		justify-content: center;
@@ -680,12 +697,12 @@ footer p {
 	
 	  }
 	  
-	  .video_container video {
+	.video_container video {
 		width: initial;
 		height: 100svh;
 		/* max-width: 100%; */
 		/* max-height: 100%; */
-	  }
+	}
 
 
 

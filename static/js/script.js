@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 
   gsap.to(".logo", {
-    y: 40,
+    y: -30,
     opacity: 0,
     scale: 0,
     duration: 3,
@@ -44,8 +44,8 @@ $(document).ready(function() {
     scrollTrigger: {
       trigger: ".endpoint",
     
-      start: "top ",
-      end: "center 0%",
+      start: "top -30svh ",
+      end: "center -80svh",
       // markers: true,
       scrub: 1,
       // pin: true,
@@ -63,13 +63,13 @@ $(document).ready(function() {
 
   gsap.to(".main_navbar", {
     y: -120,
-    backgroundColor: "rgba(45, 48, 56, 0.95)",
+    backgroundColor: "rgba(20, 37, 82, 0.93)",
     duration: 1,
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".endpoint",
-      start: "top ",
-      end: "center 0%",
+      start: "top -30svh ",
+      end: "center -80svh",
       // toggleClass: "black",
       scrub: 1,
       // markers: true,
