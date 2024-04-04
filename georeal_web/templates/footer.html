@@ -12,10 +12,104 @@
         <p>&copy; 2023 Georeal</p>
         <p><a href="/cookies">Informácie o Cookies</a></p>
         <p>Designed by LM studio</p>
+
+        <button class="switch" id="switch">
+          <i class="switch-light bx bx-sun"></i>
+          <i class="switch-dark bx bx-moon"></i>
+       </button>
+        
+
       </div>
     </div>
 
 <i class="fa-solid fa-book-atlas fa-bounce"></i>
 
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkSwitch = document.getElementById("switch");
+      const body = document.body;
+  
+      // Funkcia na kontrolu preferovaného farebného režimu
+      function checkColorScheme() {
+        const storedColorScheme = localStorage.getItem('colorScheme');
+  
+        if (storedColorScheme === null) {
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('colorScheme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark-mode');
+            body.classList.remove('dark-mode');
+            localStorage.setItem('colorScheme', 'light');
+          }
+        } else {
+          if (storedColorScheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+            body.classList.add('dark-mode');
+          }
+        }
+      }
+  
+      darkSwitch.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+        body.classList.toggle("dark-mode");
+        const isDarkMode = document.documentElement.classList.contains('dark-mode');
+        localStorage.setItem('colorScheme', isDarkMode ? 'dark' : 'light');
+      });
+  
+      // Zavoláme funkciu pri načítaní stránky
+      checkColorScheme();
+  
+      // Zavoláme funkciu pri zmene preferovaného farebného režimu, ale iba ak používateľ ešte nezvolil svoj farebný režim
+      const storedColorScheme = localStorage.getItem('colorScheme');
+      if (storedColorScheme === null) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkColorScheme);
+      }
+    });
+  </script>
+  
+  
+
+
+
+
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkSwitch = document.getElementById("switch");
+      const body = document.body;
+  
+      // Funkcia na kontrolu preferovaného farebného režimu
+      function checkColorScheme() {
+        // Tu bude váš kód na kontrolu preferovaného farebného režimu
+      }
+  
+      // Nastavenie farebného režimu podľa uložených dát v Local Storage
+      const storedColorScheme = localStorage.getItem('colorScheme');
+      if (storedColorScheme === null) {
+        // Tu bude váš kód na kontrolu, či je uložený farebný režim a jeho nastavenie
+      } else {
+        if (storedColorScheme === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+          body.classList.add('dark-mode');
+        }
+      }
+  
+      darkSwitch.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+        body.classList.toggle("dark-mode");
+        const isDarkMode = document.documentElement.classList.contains('dark-mode');
+        localStorage.setItem('colorScheme', isDarkMode ? 'dark' : 'light');
+      });
+  
+      // Zavoláme funkciu pri načítaní stránky
+      checkColorScheme();
+    });
+  </script> -->
+  
+
+
+
 </footer>

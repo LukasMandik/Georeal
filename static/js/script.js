@@ -30,6 +30,131 @@ let menu = document.querySelector(".menu");
 //   scrollPos = currentScrollPos; // uložte novú pozíciu scrollovania
 // }
 
+$(document).ready(function() {
+  
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.starter').forEach((elem) => {
+      // let dot = elem.querySelectorAll('.dot');
+      let line = elem.querySelector('.line');
+      // let dot = elem.querySelector('.address_join_kontakt_container');
+      var lineLength = line.getTotalLength();
+      line.style.strokeDasharray = lineLength;
+      line.style.strokeDashoffset = lineLength;
+
+      let Timeline = gsap.timeline({
+          ease: "elastic",
+          scrollTrigger: {
+              trigger: elem,
+              start: "top 500svh",
+              end: "bottom 500svh",
+              scrub: true,
+              // markers:true,
+          }
+      });
+
+      Timeline
+      .to(line,{strokeDashoffset: 0})
+      // .to(dot,{ opacity: 0 })
+          // .to(line[1], { opacity: 0 },"+=");
+  });
+
+
+});
+
+
+
+
+
+$(document).ready(function() {
+  
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.starter2').forEach((elem) => {
+      // let dot = elem.querySelectorAll('.dot');
+      let lines = elem.querySelectorAll('.item_home_container2 p');
+      // let dot = elem.querySelector('.address_join_kontakt_container');
+      // var lineLength = line.getTotalLength();
+      // line.style.strokeDasharray = lineLength;
+      // line.style.strokeDashoffset = lineLength;
+
+      let Timeline = gsap.timeline({
+          ease: "elastic",
+          scrollTrigger: {
+              trigger: elem,
+              start: "top 650svh",
+              end: "bottom 650svh",
+              scrub: true,
+              // markers:true,
+          }
+      });
+
+      lines.forEach((line) => {
+          Timeline.to(line, { opacity: 1 });
+  });
+});
+});
+
+
+$(document).ready(function() {
+  
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.starter2').forEach((elem) => {
+      // let dot = elem.querySelectorAll('.dot');
+      let lines = elem.querySelectorAll('.title_home_container h2');
+      // let dot = elem.querySelector('.address_join_kontakt_container');
+      // var lineLength = line.getTotalLength();
+      // line.style.strokeDasharray = lineLength;
+      // line.style.strokeDashoffset = lineLength;
+
+      let Timeline = gsap.timeline({
+          ease: "elastic",
+          scrollTrigger: {
+              trigger: elem,
+              start: "top 650svh",
+              end: "bottom 650svh",
+              scrub: true,
+              // markers:true,
+          }
+      });
+
+      lines.forEach((line) => {
+          Timeline.to(line, { opacity: 1 });
+          // Timeline.to(line, { y: 20 });
+  });
+});
+});
+
+
+$(document).ready(function() {
+  
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.starter2').forEach((elem) => {
+      // let dot = elem.querySelectorAll('.dot');
+      let lines = elem.querySelectorAll('.network_kontakt_container p');
+      // let dot = elem.querySelector('.address_join_kontakt_container');
+      // var lineLength = line.getTotalLength();
+      // line.style.strokeDasharray = lineLength;
+      // line.style.strokeDashoffset = lineLength;
+
+      let Timeline = gsap.timeline({
+          ease: "elastic",
+          scrollTrigger: {
+              trigger: elem,
+              start: "top 650svh",
+              end: "bottom 650svh",
+              scrub: true,
+              // markers:true,
+          }
+      });
+
+      lines.forEach((line) => {
+          Timeline.to(line, { opacity: 1 });
+          // Timeline.to(line, { y: 20 });
+  });
+});
+});
+
+
+
 
 $(document).ready(function() {
   gsap.registerPlugin(ScrollTrigger);
@@ -133,10 +258,13 @@ $(document).ready(function() {
   
 
   gsap.from(title,{
-      duration: 2,
+      duration: 1,
       x:100,
       stagger: 0.25,
       opacity: 0,
+      ease: 'power2.inOut', // Určuje typ animačnej krivky
+  repeat: 0, // Opakovať animáciu nekonečne
+  yoyo: true ,
       ease: "power2.out",
       scrollTrigger: {
         trigger: title,
@@ -144,11 +272,24 @@ $(document).ready(function() {
         start: "center 700svh",
         // markers: true,
         scrub: true,
-        toggleActions: "pause none none none",
+        toggleActions: "complete complete complete complete",
         // play pause resume reverse restart reset complete
     }
 })  
 })
+
+// ease: 'power2.inOut', // Určuje typ animačnej krivky
+// repeat: 1, // Opakovať animáciu nekonečne
+// yoyo: true ,
+// scrollTrigger: {
+//   trigger: ".endpoint",
+
+//   start: "top ",
+//   end: "center 0%",
+//   // markers: true,
+//   scrub: 1,
+//   // pin: true,
+//   toggleActions: "restart none none none", // Opakovať animáciu späť a dopredu
 
 
 
@@ -201,45 +342,45 @@ $(document).ready(function() {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .up_address_container");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const paragraphs = document.querySelectorAll(".item_home_container p, .center_home_container, .down_home_container, .address_join_kontakt_container, .network_kontakt_container");
 
-  paragraphs.forEach((paragraph) => {
-    gsap.set(paragraph, { right: 0 });
+//   paragraphs.forEach((paragraph) => {
+//     gsap.set(paragraph, { right: 0 });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            gsap.to(paragraph, {
-              opacity: 1,
-              scale: 1,
-              // right: 100,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-          } else {
-            gsap.to(paragraph, {
-              opacity: 0.2,
-              scale: 0.9,
-              // right: 0,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.25,
-      }
-    );
+//     const observer = new IntersectionObserver(
+//       (entries) => {
+//         entries.forEach((entry) => {
+//           if (entry.isIntersecting) {
+//             gsap.to(paragraph, {
+//               opacity: 1,
+//               scale: 1,
+//               // right: 100,
+//               duration: 0.5,
+//               ease: "power2.out",
+//             });
+//           } else {
+//             gsap.to(paragraph, {
+//               opacity: 0.2,
+//               scale: 0.9,
+//               // right: 0,
+//               duration: 0.5,
+//               ease: "power2.out",
+//             });
+//           }
+//         });
+//       },
+//       {
+//         threshold: 0.15,
+//       }
+//     );
 
-    observer.observe(paragraph);
-  });
+//     observer.observe(paragraph);
+//   });
 
-  // Pokud používáte imagesLoaded, zjistěte, zda je již nainstalováno
-  // a použijte ho podle potřeby.
-});
+//   // Pokud používáte imagesLoaded, zjistěte, zda je již nainstalováno
+//   // a použijte ho podle potřeby.
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const paragraphs = document.querySelectorAll(" #faq .faq_content_container p:nth-child(odd)");
