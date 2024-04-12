@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-<body>
+<body id="body">
 {% block main %}
 <div id="loading-screen" class="loading-screen">
     <div class="loading-text">Loading...</div>
@@ -37,7 +37,7 @@
       <button class="button" id="acceptBtn">Accept</button>
       <button class="button" id="declineBtn">Decline</button>
     </div>
-  </div>
+</div>
   
 {% include 'navbar.html' %}
     {% block content %}
