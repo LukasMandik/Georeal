@@ -71,6 +71,9 @@ $(document).ready(function() {
   })
   })
 
+
+
+  
   
 //   $(document).ready(function() {
 //     gsap.registerPlugin(ScrollTrigger);
@@ -134,7 +137,7 @@ $(document).ready(function() {
               start: "top 650svh",
               end: "bottom 650svh",
               scrub: true,
-              // markers:true, 
+              // markers:true,
           }
       });
 
@@ -151,7 +154,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   
   gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.starter').forEach((elem) => {
+  gsap.utils.toArray('.starter7').forEach((elem) => {
       // let dot = elem.querySelectorAll('.dot');
       let line = elem.querySelector('.line');
       // let dot = elem.querySelector('.address_join_kontakt_container');
@@ -267,82 +270,54 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-  
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.starter2').forEach((elem) => {
-      let lines = elem.querySelectorAll('.address_container ');
 
-      let Timeline = gsap.timeline({
-          ease: "elastic",
-          // x:100,
-          scrollTrigger: {
-              trigger: elem,
-              start: "top 650svh",
-              end: "bottom 650svh",
-              scrub: true,
-              // markers:true,
-          }
-      });
+
+$(document).ready(function() {
+  gsap.utils.toArray('.starter2').forEach((elem) => {
+      let lines = elem.querySelectorAll('.address_container, .kontakt_text');
 
       lines.forEach((line) => {
-          Timeline.to(line, { opacity: 1, y: -15});
-  });
-});
-});
+          let Timeline = gsap.timeline({
+              ease: "elastic",
+              scrollTrigger: {
+                  trigger: line,
+                  start: "top 650svh",
+                  end: "bottom 650svh",
+                  scrub: false,
+                  // markers: true,
+                  toggleActions: "restart none none reverse",
+              }
+          });
 
-$(document).ready(function() {
-  
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.starter2').forEach((elem) => {
-      let lines = elem.querySelectorAll('.kontakt_text');
-
-      let Timeline = gsap.timeline({
-          ease: "elastic",
-          // x:100,
-          scrollTrigger: {
-              trigger: elem,
-              start: "top 560svh",
-              end: "bottom 560svh",
-              scrub: true,
-              // markers:true,
-          }
+          Timeline.to(line, { opacity: 1, y: -10 });
       });
-
-      lines.forEach((line) => {
-          Timeline.to(line, { opacity: 1, y: -15});
   });
 });
-});
+
 
 $(document).ready(function() {
-  
-  gsap.registerPlugin(ScrollTrigger);
   gsap.utils.toArray('.starter2').forEach((elem) => {
-      // let dot = elem.querySelectorAll('.dot');
       let lines = elem.querySelectorAll('.network_kontakt_container p');
-      // let dot = elem.querySelector('.address_join_kontakt_container');
-      // var lineLength = line.getTotalLength();
-      // line.style.strokeDasharray = lineLength;
-      // line.style.strokeDashoffset = lineLength;
-
-      let Timeline = gsap.timeline({
-          ease: "elastic",
-          scrollTrigger: {
-              trigger: elem,
-              start: "top 650svh",
-              end: "bottom 650svh",
-              scrub: true,
-              // markers:true,
-          }
-      });
 
       lines.forEach((line) => {
-          Timeline.to(line, { opacity: 1 });
-          // Timeline.to(line, { y: 20 });
+          let Timeline = gsap.timeline({
+              ease: "elastic",
+              scrollTrigger: {
+                  trigger: line,
+                  start: "top 650svh",
+                  end: "bottom 650svh",
+                  scrub: false,
+                  // markers: true,
+                  toggleActions: "restart none none reverse",
+              }
+          });
+
+          Timeline.to(line, { opacity: 1, y: -10 });
+      });
   });
 });
-});
+
+
 
 $(document).ready(function() {
   
@@ -509,6 +484,29 @@ $(document).ready(function() {
     lines.forEach((line) => {
       Timeline.from(line, { opacity: 0, x: 100,duration: 0.35 });
     });
+  });
+});
+
+
+$(document).ready(function() {
+  gsap.utils.toArray('.starter').forEach((elem) => {
+      let lines = elem.querySelectorAll('.item_home_container p');
+
+      lines.forEach((line) => {
+          let Timeline = gsap.timeline({
+              ease: "elastic",
+              scrollTrigger: {
+                  trigger: line,
+                  start: "top 650svh",
+                  end: "bottom 650svh",
+                  scrub: false,
+                  // markers: true,
+                  toggleActions: "restart none none reverse",
+              }
+          });
+
+          Timeline.to(line, { opacity: 1, y: -10 });
+      });
   });
 });
 

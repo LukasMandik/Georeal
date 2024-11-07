@@ -26,17 +26,37 @@
 </div>
 
 <div class="wrapper2">
-    <header>
-      <i class="bx bx-cookie"></i>
-      <h2>Cookies Consent</h2>
-    </header>
-    <div class="data">
-      <p>This website use cookies to help you have a superior and more relevant browsing experience on the website. <a href="/cookies"> Read more...</a></p>
-    </div>
-    <div class="buttons">
-      <button class="button" id="acceptBtn">Accept</button>
-      <button class="button" id="declineBtn">Decline</button>
-    </div>
+  <header>
+    <i class="bx bx-cookie"></i>
+    <h2>Súhlas s cookies</h2>
+  </header>
+  <div class="data">
+    <p>Táto webová stránka používa cookies, aby vám poskytla lepší a relevantnejší zážitok z prehliadania. <a href="/cookies"> Prečítajte si viac...</a></p>
+  </div>
+  <div class="buttons">
+    <button class="button" id="acceptBtn">Prijať všetky</button>
+    <!-- <button class="button" id="declineBtn">Odmietnuť</button> -->
+    <button class="button" id="customizeBtn">Prispôsobiť</button>
+  </div>
+</div>
+<div id="customize-cookies-modal" class="modal_cookies">
+<div class="modal-content_cookies">
+    <span class="close_cookies">&times;</span>
+    <h2>Prispôsobenie cookies</h2>
+    <form id="cookie-preferences-form">
+        <label>
+            <input type="checkbox" id="functional-cookies" checked disabled>
+            Funkčné cookies (vždy aktívne)
+        </label>
+        <label>
+            <input type="checkbox" id="marketing-cookies" checked>
+            Marketingové cookies
+        </label>
+        <div class="buttons">
+        <button class="button" id="acceptBtn" type="submit">Uložiť a prijať</button>
+        </div>
+    </form>
+</div>
 </div>
   
 {% include 'navbar.html' %}
@@ -51,6 +71,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 <script src="{% static 'js/loading.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/cookies.js' %}"></script>
 <script>
     const cookieBox = document.querySelector(".wrapper2"),
   buttons = document.querySelectorAll(".button");

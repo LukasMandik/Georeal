@@ -22,7 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # georeal_web app
     path('', include('georeal_web.urls')),
-
 ]
 
 
