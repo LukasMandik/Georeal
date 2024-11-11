@@ -2,12 +2,35 @@
 {% load static %}
 {% block title %}GEOREAL{% endblock %}
 
+{% block meta_description %}
+<meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995. Kontaktujte nás a zažite profesionálny prístup.">
+{% endblock %}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GEOREAL",
+  "url": "https://www.georeal.biz",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.georeal.biz/search?query={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+{% block og_title %}GEOREAL - Geodetické služby{% endblock %}
+
+<meta property="og:type" content="website">
+<meta property="og:image" content="{% block og_image %}{% static 'media/geo-real3.png' %}{% endblock %}">
+<meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995. Kontaktujte nás a zažite profesionálny prístup.{% endblock %}">
 
 {% block content %}
 <div class="main_home_container">
 
-  <section id="home" title="Home">
+  <section id="home" title="Domov">
     <div class="endpoint"></div>
    
     <div class="video_container">
@@ -24,7 +47,7 @@
 
     <div class="top_home_container">
         <div class="item_home_container starter">
-            <p>Sme vaši test <span>spoľahliví partneri</span> na geodetickom poli, aktívni na slovenskom trhu už od roku 1995.</p>
+            <p>Sme vaši <span>spoľahliví partneri</span> na geodetickom poli, aktívni na slovenskom trhu už od roku 1995.</p>
             <p>Či už ide o meranie pár metrov alebo niekoľko kilometrov, spoločnosť GEOREAL vám prináša rýchle a <span>kvalitné </span>riešenia za skvelú cenu</p>
             <p>Naša činnosť je zameraná na stredné Slovensko, avšak nezabúdame ani na širšie oblasti, vrátane miest ako Prievidza, Handlová, Banská Bystrica a ďalších častí Slovenska</p>
             <p>Od merania stavebných pozemkov po <span>inovatívne riešenia</span> kanalizácie, sme tu pre vás so skúsenosťami a odhodlaním už od roku 1995.</p>
@@ -42,7 +65,7 @@
         </svg>
     </div>
   
-  <section id="sluzby" title="sluzby">
+  <section id="sluzby" title="služby">
     <div class="sluzby_container">
         <div class="title_home_container starter starter7">
             <h2>Naše služby</h2>        
@@ -83,11 +106,6 @@
             <p><i class="fas fa-crosshairs"></i>Zameranie a vytýčenie líniových stavieb</p>
         </div>
     </div>
-    <!-- <div class="my_line"> -->
-        <!-- <svg height="100%" version="1.1" viewBox="0 0 612 1008" width="100%" class="svg_shpe">
-            <path d="M75.2915 231.783L76.7715 482.197L489.047 489.825L475.162 218.7L76.0117 206.699" fill="none" opacity="1" stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" class="line" />
-        </svg> -->
-    <!-- </div> -->
 </section>
 
 <div class="page_line starter6">
@@ -154,48 +172,16 @@
             </div>
         </div>
     </div>
-    
-    <!-- <div class="address_container">
-        <div class="item_home_container">
-            <p><i class="fas fa-mobile-alt"></i><a href="tel:+421905696520" title="Call +421905696520">0905 696 520</a></p>
-            <p><i class="fas fa-phone-alt"></i><a href="tel:046/5477 520" title="Call 046/5477 520">046/5477 520</a></p>
-            <p><i class="far fa-envelope"></i><a href="mailto:pukacmilan@gmail.com" title="Email pukacmilan@gmail.com">pukacmilan@gmail.com</a></p>
-        </div>
-        <div class="up_address_container">
-            <div class="title_home_container2">
-                <h2>Ozvite sa nám</h2>
-                <h3>Dostali ste cenovú ponuku a tá sa Vám zdá privysoká ?<br> Pošlite nám ju a vynasnažíme sa spraviť lepšiu.</h3>
-            </div>
-            <div class="item_home_container2">
-                <p>GEOREAL</p>
-                <p>1.mája č.95</p>
-                <p>972 51</p>
-                <p>Handlová</p>
-                <p>Slovensko</p>
-            </div>
-        </div>
-
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2198.2111596300256!2d18.763811704891722!3d48.726666966877936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714df4e5e4d88a1%3A0x60b93e1df7a66198!2zMS4gbcOhamEgNDQ5Lzk1LCA5NzIgNTEgSGFuZGxvdsOh!5e0!3m2!1ssk!2ssk!4v1683456749105!5m2!1ssk!2ssk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div> -->
 </section>
-
-    <div class="page_line starter6">
-        <svg stroke-miterlimit="10" version="1.1" viewBox="0 0 490.342 5" preserveAspectRatio="xMidYMin slice" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="">
-            <defs/>
-            <g id="Layer-1">
-                <path d="M-0.106176 0L500 0" fill="none" opacity="1" stroke="#c9c9c973" stroke-linecap="round" stroke-width="1" class="line"/>
-            </g>
-        </svg>
-    </div>
-
+<div class="page_line starter6">
+    <svg stroke-miterlimit="10" version="1.1" viewBox="0 0 490.342 5" preserveAspectRatio="xMidYMin slice" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="">
+        <defs/>
+        <g id="Layer-1">
+            <path d="M-0.106176 0L500 0" fill="none" opacity="1" stroke="#c9c9c973" stroke-linecap="round" stroke-width="1" class="line"/>
+        </g>
+    </svg>
+</div>
 <section id="faq" title="faq">
-
-
-   
-
-
   <div class="faq_container starter2">
       <div class="title_home_container">
           <h2>Časté otázky a odpovede</h2>
@@ -318,32 +304,7 @@
 <!-- </div> -->
   <button id="moreButton">+</button>
 
-  <!-- <div class="faq_content_container starter2 ">
-      <p>1. Ako dlho pôsobí spoločnosť GEOREAL na trhu?</p>
-      <p>Od roku 1995 sme spoľahlivým partnerom v oblasti geodetických služieb a poradenstva na Slovensku.</p>
-      <p>2. Akú presnosť môžem očakávať pri vyhotovení geometrického plánu?</p>
-      <p>Štandardne vytvárame 3 úradne overené kópie s decimetrovou presnosťou, postačujúce pre kolaudáciu a účely úveru.</p>
-      <p>3. Aká je platnosť geometrického plánu?</p>
-      <p>Platnosť závisí od katastrálneho územia a môže byť aj storočná. Vždy však dodržiavame normy a predpisy.</p>
-      <p>4. Ako presné môže byť vytýčenie hraníc pozemku?</p>
-      <p>Presnosť vytýčenia závisí od historických záznamov v katastri, s mierou presnosti okolo decimetra až centimetra.</p>
-      <p>5. Prečo je presnosť vytýčenia niekedy nižšia?</p>
-      <p>História katastrálnych map a metód merania ovplyvňuje presnosť. Staršie mapy môžu mať neistoty až do pol metra.</p>
-      <p>6. Ako často potrebujem osadenie stavby na pozemok?</p>
-      <p>Osadenie stavby na pozemok sa vyžaduje pred začatím stavby a odporúčame zabezpečiť projektovú dokumentáciu v predstihu</p>
-      <p>7. Čo potrebujem k vytýčeniu stavby?</p>
-      <p>Projektovú dokumentáciu a situačný výkres stavby v elektronickej forme vo formáte DWG alebo PDF. Tieto dokumenty pomáhajú presnému vytýčeniu stavby.</p>
-      <p>8. Koľko kópií geometrického plánu dostanem?</p>
-      <p>Štandardne poskytujeme 3 úradne overené kópie, s možnosťou dohody na vyhotovení 6 kópii v prípade viacerých zmluvných strán.</p>
-      <p>9. Ako sa líši číselná mapa od nečíselnej mapy v katastri?</p>
-      <p>Číselná mapa ponúka vyššiu presnosť, kým nečíselná mapa môže mať nižšiu presnosť až do pol metra.</p>
-      <p>10. Kde sa zameriavate najmä v strednom Slovensku?</p>
-      <p>Zameriavame sa najmä na mestá ako Prievidza, Handlová, Banská Bystrica, avšak poskytujeme služby po celom Slovensku.</p>
-      <p>11. Ktoré služby ponúkate okrem geodetických meraní?</p>
-      <p>Okrem meraní poskytujeme aj služby ako majetkoprávne vysporiadanie, vytyčovanie hraníc a inžiniersku geodéziu.</p>
-      <p>12. Ako môžem kontaktovať spoločnosť GEOREAL pre ďalšie informácie?</p>
-      <p>Môžete nás kontaktovať prostredníctvom našej webovej stránky alebo telefonicky na uvedenom kontaktnom čísle. Rádi vám poskytneme ďalšie informácie.</p>
-  </div> -->
+
 </section>
 
 
