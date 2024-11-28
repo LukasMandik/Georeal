@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,11 +18,15 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>{% block title %}Georeal - geodetické služby{%endblock%}</title>
+
+    {% block meta_description %}
+    <meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995. Kontaktujte nás a zažite profesionálny prístup.">
+    {% endblock %}
 </head>
 <body id="body">
 {% block main %}
 <div id="loading-screen" class="loading-screen">
-    <div class="loading-text">Loading...</div>
+    <div class="loading-text">Načítava sa...</div>
 </div>
 
 <div class="wrapper2">
@@ -73,30 +76,5 @@
 <script src="{% static 'js/loading.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/cookies.js' %}"></script>
-<!-- <script>
-    const cookieBox = document.querySelector(".wrapper2"),
-  buttons = document.querySelectorAll(".button");
-
-const executeCodes = () => {
-  //if cookie contains codinglab it will be returned and below of this code will not run
-  if (document.cookie.includes("georeal")) return;
-  cookieBox.classList.add("show");
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      cookieBox.classList.remove("show");
-
-      //if button has acceptBtn id
-      if (button.id == "acceptBtn") {
-        //set cookies for 1 month. 60 = 1 min, 60 = 1 hours, 24 = 1 day, 30 = 30 days
-        document.cookie = "cookieBy= georeal; max-age=" + 60 * 60 * 24 * 30;
-      }
-    });
-  });
-};
-
-//executeCodes function will be called on webpage load
-window.addEventListener("load", executeCodes);
-</script> -->
 </body>
 </html>
