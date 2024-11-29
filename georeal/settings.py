@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-d^jg3*hfr)z(p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ["www.georeal.biz", "www.georeal.biz", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["www.georeal.biz", "www.georeal.biz", "192.168.100.4", "127.0.0.1"]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:

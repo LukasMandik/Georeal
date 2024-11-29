@@ -7,7 +7,7 @@ class StaticViewSitemap(Sitemap):
     changefreq = 'monthly'
 
     def items(self):
-        return ['georeal_web:home', 'georeal_web:cookies']
+        return ['georeal_web:home']
 
     def location(self, item):
         return reverse(item)
