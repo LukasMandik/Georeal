@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
             // Načítanie gtag.js
             const gtagScript = document.createElement('script');
             gtagScript.async = true;
-            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-N0MJRLXRKS';
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-YJE5PT90DS';
             document.head.appendChild(gtagScript);
 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-N0MJRLXRKS', {
+            gtag('config', 'G-YJE5PT90DS', {
                 'anonymize_ip': true,
                 'cookie_flags': 'SameSite=None; Secure'
             });
