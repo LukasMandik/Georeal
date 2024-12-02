@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class StaticViewSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'monthly'
+    changefreq = 'daily'
 
     def items(self):
         return ['georeal_web:home']

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-d^jg3*hfr)z(pit$s6*=opsc)pjpt2uw@er(t%_zy&5yalhtmt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ["www.georeal.biz", "georeal.biz", "192.168.100.4", "127.0.0.1"]
 
