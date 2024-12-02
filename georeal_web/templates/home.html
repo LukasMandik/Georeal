@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %}GEOREAL - Geodet, geodetické práce{% endblock %}
+<title>{% block title %}Georeal - geodetické služby{%endblock%}</title>
 {% block meta_description %}
 <meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995.">
 {% endblock %}
@@ -15,7 +15,8 @@
     "@type": "SearchAction",
     "target": "https://www.georeal.biz/search?query={search_term_string}",
     "query-input": "required name=search_term_string"
-  }
+  },
+  "image": "https://www.georeal.biz/static/media/geo-real3.png"
 }
 </script>
 {% block og_title %}GEOREAL - Geodet, geodetické práce{% endblock %}
