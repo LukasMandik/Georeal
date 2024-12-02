@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}GEOREAL{% endblock %}
-
+{% block title %}GEOREAL - Geodet, geodetické práce{% endblock %}
 {% block meta_description %}
-<meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995. Kontaktujte nás a zažite profesionálny prístup.">
+<meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995.">
 {% endblock %}
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -19,20 +17,11 @@
   }
 }
 </script>
-
-{% block og_title %}GEOREAL - Geodetické služby{% endblock %}
-
-<meta property="og:type" content="website">
-<meta property="og:image" content="{% block og_image %}{% static 'media/geo-real3.png' %}{% endblock %}">
-<meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}">
-<meta property="og:description" content="{% block og_description %}Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995. Kontaktujte nás a zažite profesionálny prístup.{% endblock %}">
-
+{% block og_title %}GEOREAL - Geodet, geodetické práce{% endblock %}
 {% block content %}
 <div class="main_home_container">
-
   <section id="home" title="Domov">
     <div class="endpoint"></div>
-   
     <div class="video_container">
         <div class="main_title_container starter2">
             <h1>GEOREAL</h1>
@@ -40,22 +29,17 @@
             <h2>v oblasti geodetických služieb</h2>
         </div>
         <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline  oncontextmenu="return false;"  preload="auto"  id="myVideo">
-            <source src="{% static 'media/georeal3_h264_4000_kbps.mp4' %}" type="video/mp4">
+            <source src="{% static '/media/georeal_compressed.webm' %}" type="video/mp4">
         </video>
     </div>
-
-
     <div class="top_home_container">
         <div class="item_home_container starter">
             <p>Či už ide o meranie pár metrov alebo niekoľko kilometrov, ponúkame vám  rýchle a kvalitné riešenia za skvelú cenu.</p>
             <p>Naša činnosť je zameraná na okres Prievidza , avšak nezabúdame ani na širšie oblasti, vrátane okresov ako Partizánske, Žiar nad Hronom, Turčianske teplice a ďalších častí Slovenska.</p>
-            <p>Od merania stavebných pozemkov po inovatívne riešenia kanalizácie, sme tu pre vás s viac ako 35 ročnou praxou v odbore.</p>
-            <!-- <p>Od merania stavebných pozemkov po <span>inovatívne riešenia</span> kanalizácie, sme tu pre vás so skúsenosťami a odhodlaním už od roku 1995.</p> -->
-        
+            <p>Od merania stavebných pozemkov po inovatívne riešenia kanalizácie, sme tu pre vás s viac ako 35 ročnou praxou v odbore.</p>        
         </div>
     </div>
   </section>
-
     <div class="page_line starter6">
         <svg stroke-miterlimit="1" version="1.1" viewBox="0 0 490.342 5" preserveAspectRatio="xMidYMin slice" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="">
             <defs/>
@@ -64,7 +48,6 @@
             </g>
         </svg>
     </div>
-  
   <section id="sluzby" title="služby">
     <div class="sluzby_container">
         <div class="title_home_container starter starter7">
@@ -76,13 +59,10 @@
             </g>
             </svg>
         </div>
-
     </div>
-
     <div class="center_home_container">
         <div class="title_home_container starter2">
             <h2>GEOMETRICKÉ PLÁNY</h2>
-            
         </div>
         <div class="item_home_container2 starter2">
             <p><i class="fas fa-map-marker-alt"></i>Zameranie adresného bodu</p>
@@ -94,8 +74,7 @@
             <p><i class="fas fa-handshake"></i>Vecné bremená</p>
             <p><i class="fas fa-search"></i>Kontrolné merania (stavby,pozemky,ploty..)</p>
         </div>
-    </div>
-    
+    </div>   
     <div class="down_home_container">
         <div class="title_home_container starter2">
             <h2>INŽINIERSKA GEODÉZIA</h2>
@@ -107,7 +86,6 @@
         </div>
     </div>
 </section>
-
 <div class="page_line starter6">
     <svg stroke-miterlimit="1" version="1.1" viewBox="0 0 490.342 5" preserveAspectRatio="xMidYMin slice" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="">
         <defs/>
@@ -127,51 +105,34 @@
                 </g>
             </svg>
         </div>
-        <div class="kontakt_container_content">
-            <div class="network_kontakt_container starter2">
-
-                <p><a href="tel:+421905696520" title="Call +421905696520">
-                    <i class="fas fa-mobile-alt"></i>
-                </a></p>
-                <p class="tel1">+421905696520</p>
-                
-                <p><a href="tel:046/5477 520" title="Call 046/5477 520">
-                    <i class="fas fa-phone-alt"></i>
-                </a></p>
-                <p class="tel1">046/5477 520</p>
-                <p><a href="mailto:pukacmilan@gmail.com" title="Email pukacmilan@gmail.com">
-                    <i class="far fa-envelope"></i>
-                </a></p>
-                <p>pukacmilan@gmail.com</p>
-            </div>
-            <div class="address_join_kontakt_container starter2 starter8">
-                <div class="kontakt_text">
-                    <h2>Ozvite sa nám</h2>
-                    <h3>Dostali ste cenovú ponuku a tá sa Vám zdá privysoká ? Pošlite nám ju a vynasnažíme sa spraviť lepšiu.</h3>
+        <div itemscope itemtype="http://schema.org/Organization">
+            <div class="kontakt_container_content">
+                <div class="network_kontakt_container starter2">
+                    <p itemprop="telephone"><a href="tel:+421905696520" title="Call +421905696520">
+                        <i class="fas fa-mobile-alt"></i>
+                    </a>+421905696520</p>
+                    <p itemprop="telephone"><a href="tel:046/5477 520" title="Call 046/5477 520">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>046/5477 520</p>
+                    <p><a itemprop="email" href="mailto:pukacmilan@gmail.com" title="Email pukacmilan@gmail.com">
+                        <i class="far fa-envelope"></i>
+                    </a><span class="hidden-email">pukacmilan</span><span class="hidden-email">@gmail.com</span></p>
                 </div>
-                <svg stroke-miterlimit="10" version="1.1" viewBox="0 0 490.342 5" preserveAspectRatio="xMidYMin slice" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="">
-                    <defs/>
-                    <g id="Layer-1">
-                        <path d="M-0.106176 0L500 0" fill="none" opacity="1" stroke="#c9c9c973" stroke-linecap="round" stroke-width="20" class="line"/>
-                    </g>
-                </svg>
-                <div class="address_container">
-                    <p>GEOREAL</p>
-                    <p>1.mája č.95</p>
-                    <p>972 51</p>
-                    <p>Handlová</p>
-                    <p>Slovensko</p>
+                <div class="address_join_kontakt_container starter2 starter8">
+                    <div class="kontakt_text">
+                        <h2 itemprop="name">GEOREAL</h2>
+                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            <p itemprop="streetAddress">1.mája č.95</p>
+                            <p itemprop="postalCode">972 51</p>
+                            <p itemprop="addressLocality">Handlová</p>
+                            <p itemprop="addressCountry">Slovensko</p>
+                        </div>
+                    </div>
                 </div>
-                <svg stroke-miterlimit="10" version="1.1" viewBox="0 0 490.342 5" preserveAspectRatio="xMidYMin slice" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="">
-                    <defs/>
-                    <g id="Layer-1">
-                        <path d="M-0.106176 0L500 0" fill="none" opacity="1" stroke="#c9c9c973" stroke-linecap="round" stroke-width="20" class="line"/>
-                    </g>
-                </svg>
             </div>
-            <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2198.2111596300256!2d18.763811704891722!3d48.726666966877936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714df4e5e4d88a1%3A0x60b93e1df7a66198!2zMS4gbcOhamEgNDQ5Lzk1LCA5NzIgNTEgSGFuZGxvdsOh!5e0!3m2!1ssk!2ssk!4v1683456749105!5m2!1ssk!2ssk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2198.2111596300256!2d18.763811704891722!3d48.726666966877936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714df4e5e4d88a1%3A0x60b93e1df7a66198!2zMS4gbcOhamEgNDQ5Lzk1LCA5NzIgNTEgSGFuZGxvdsOh!5e0!3m2!1ssk!2ssk!4v1683456749105!5m2!1ssk!2ssk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>
@@ -189,11 +150,6 @@
           <h2>Časté otázky a odpovede</h2>
       </div>
   </div>
-
-
-
-
-<!-- <div class="content"> -->
 <div class="">
   <div class="collapse-holder" data-ai-expanded='false' data-ai-disabled="false">
     <div class="collapse-header">
@@ -303,16 +259,9 @@
         Môžete nás kontaktovať prostredníctvom našej webovej stránky alebo telefonicky na uvedenom kontaktnom čísle. Rádi vám poskytneme ďalšie informácie.
     </div>
   </div>
-<!-- </div> -->
   <button id="moreButton">+</button>
-
-
 </section>
-
-
 </div>
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Získanie všetkých elementov s triedou 'collapse-holder'
@@ -347,8 +296,6 @@
         });
     });
     </script>
-    
-    
     <script>
 document.addEventListener('scroll', function() {
     var homeSection = document.getElementById('home');
@@ -376,10 +323,5 @@ document.addEventListener('scroll', function() {
         }
     });
 });
-
-
-
-    </script>
-    
-
+</script>
 {% endblock %}

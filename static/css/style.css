@@ -533,20 +533,7 @@ body.light-mode .main_home_container #sluzby .down_home_container .item_home_con
 	background-color: var(--primary-BodyTextWhite2);
 	color: var(--primary-BodyTextBlack);
 }
-/* body.dark-mode .main_home_container #home .top_home_container .item_home_container p span{
-	color: var(--primary-BodyTextWhite2);
-}
-@media (prefers-color-scheme: dark) { #home .top_home_container .item_home_container p span{
-	color: var(--primary-BodyTextWhite2);
-}
- }
-body.light-mode .main_home_container #home .top_home_container .item_home_container p span{
-	color: var(--primary-BodyTextBlack);
-} */
-/* @media (prefers-color-scheme: light) { #home .top_home_container .item_home_container p span{
-	color: red;
-}
-} */
+
 .item_home_container2 p{
 	opacity: 0;
 }
