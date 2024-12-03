@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-d^jg3*hfr)z(pit$s6*=opsc)pjpt2uw@er(t%_zy&5yalhtmt'
-SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-d^jg3*hfr)z(pit$s6*=opsc)pjpt2uw@er(t%_zy&5yalhtmt')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,10 +51,11 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -120,79 +124,32 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'sk'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
-# run python3 manage.py collectstatic
-# STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+#
 
-
-# if not DEBUG:
-#     # Tell Django to copy statics to the `staticfiles` directory
-#     # in your application directory on Render.
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-#     # Turn on WhiteNoise storage backend that takes care of compressing static files
-#     # and creating unique names for each version so they can safely be cached forever.
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-
-# MEDIA_URL = '/images/'
-
-
-# # STATICFILES_DIRS = [
-# #     BASE_DIR / 'static'
-# # ]
-
-# MEDIA_ROOT = BASE_DIR / 'static/images'
-# # STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# # Default primary key field type
-# # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
-# MEDIA_URL = '/images/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
-
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
-
-MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 import sentry_sdk
