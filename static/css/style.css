@@ -9,6 +9,12 @@
   --primary-SecondColorText: rgb(11, 101, 191);
   /* --primary-SecondColorText: rgba(251, 198, 54, 0.93); */
 }
+:root {
+	--light-color: #fefefe;
+	--dark-color: rgba(51, 51, 51, 0.995);
+	--sun-color: #FFEE58;
+	--moon-color: #BDBDBD;
+  }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -48,13 +54,19 @@ body.dark-mode {
 		color: var(--primary-BodyTextWhite2);
 	  }
 }
-:root {
-	--light-color: #fefefe;
-	--dark-color: rgba(51, 51, 51, 0.995);
-	--sun-color: #FFEE58;
-	--moon-color: #BDBDBD;
-  }
-
+.error404 {
+	background-color: var(--background-color-light);
+	width: 100%;
+	height: 100svh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow-x: hidden;
+}
+.error404 h1{
+	margin-bottom: 20px;
+}
 .switch-box {
     width: 40px;
     height: 20px;

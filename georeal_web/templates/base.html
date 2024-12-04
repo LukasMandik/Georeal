@@ -11,9 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:wght@100&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Khand:wght@300;400;500;600;700&family=Montserrat:wght@100&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Khand:wght@300;400;500;600;700&family=Montserrat:wght@100&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -21,7 +18,7 @@
     <title>{% block title %}Georeal - geodetické služby{%endblock%}</title>
 
 
-    <meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995. Kontaktujte nás a zažite profesionálny prístup.">
+    <meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995">
 
 
     <!-- Facebook Open Graph -->
@@ -29,18 +26,20 @@
     <meta property="og:url" content="https://www.georeal.biz/">
     <meta property="og:title" content="GEOREAL - Geodet, geodetické práce">
     <meta property="og:description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995.">
-    <meta property="og:image" content="{% static 'media/geo-real3.png' %}">
+    <meta property="og:image" content="{% static 'media/georeal-image.png' %}">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.georeal.biz/">
     <meta name="twitter:title" content="GEOREAL - Geodet, geodetické práce">
     <meta name="twitter:description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995.">
-    <meta name="twitter:image" content="{% static 'media/geo-real3.png' %}">
+    <meta name="twitter:image" content="{% static 'media/georeal-image.png' %}">
 
     <!-- LinkedIn -->
     <meta property="og:site_name" content="GEOREAL">
     <meta property="og:locale" content="sk_SK">
+    
+    <script src="{% static 'js/cookies.js' %}"></script>
 </head>
 <body id="body">
 {% block main %}
@@ -94,6 +93,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 <script src="{% static 'js/loading.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
-<script src="{% static 'js/cookies.js' %}"></script>
 </body>
 </html>
