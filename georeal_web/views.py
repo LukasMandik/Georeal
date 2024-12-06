@@ -35,6 +35,9 @@ def get_city_from_ip(ip_address):
     except geoip2.errors.AddressNotFoundError:
         return "Unknown"
 
+# Definujte čiernu listinu IP adries
+blacklist_ips = ['178.143.35', '85.237.234']
+
 @login_required
 def tracking_view(request):
     now = timezone.now()
@@ -64,6 +67,9 @@ def tracking_view(request):
         intervals = 12
         start_time = now - delta * intervals
         visitors = Visitor.objects.filter(start_time__gte=start_time)
+
+    # Filtrovanie návštevníkov podľa čiernej listiny
+    visitors = visitors.exclude(ip_address__in=blacklist_ips)
 
     # Inicializácia dátových štruktúr
     labels = []
