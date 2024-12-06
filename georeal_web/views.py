@@ -33,7 +33,7 @@ def tracking_view(request):
 
     # Definovanie časových filtrov pre jednotlivé obdobia
     time_filters = {
-        '1h': {'delta': timedelta(minutes=15), 'intervals': 4},
+        '1h': {'delta': timedelta(minutes=5), 'intervals': 12},
         '3h': {'delta': timedelta(minutes=30), 'intervals': 6},
         '24h': {'delta': timedelta(hours=6), 'intervals': 4},
         'week': {'delta': timedelta(days=1), 'intervals': 7},
