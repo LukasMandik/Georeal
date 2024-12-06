@@ -6,6 +6,9 @@
       <i class="fas fa-moon"></i>
     </div>
         <p>&copy; 2023 Georeal</p>
+        {% if user.is_authenticated %}
+        <p class="tracking" data-section="tracking"><a href="/tracking" title="Návštevnosť">Návštevnosť</a></p>
+        {% endif %}
         <p><a href="/cookies" title="Informácie o Cookies">Informácie o Cookies</a></p>
         <p class="starter3">Made with <a href="https://www.linkedin.com/in/lukas-mandik-62324b253/" rel="noopener" target="_blank" title="LinkedIn profil"><i class="bx bx-heart"></i></a></p>
 
