@@ -36,22 +36,6 @@
             {% endfor %}
         </ul>
     </div>
-    <div class="time-on-site">
-        <h2>Čas strávený na stránke podľa lokalít</h2>
-        <ul>
-            {% for city, time in time_on_site_data.items %}
-                <li>{{ city }}: {{ time }} minút</li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="time-on-site-by-ip">
-        <h2>Čas strávený na stránke podľa IP adresy</h2>
-        <ul>
-            {% for ip, time in time_on_site_by_ip.items %}
-                <li>{{ ip }}: {{ time }}</li>
-            {% endfor %}
-        </ul>
-    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
