@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.db.models import Count
 from tracking.models import Visitor
+import geoip2.database
+import logging
 
 # Create your views here.
 # @cache_page(60 * 15) 
@@ -26,6 +28,17 @@ def cookies(request):
 from django.utils import timezone
 from datetime import timedelta
 
+def get_city_from_ip(ip_address):
+    reader = geoip2.database.Reader('static/GeoLite2-City.mmdb')
+    try:
+        response = reader.city(ip_address)
+        return response.city.name
+    except geoip2.errors.AddressNotFoundError:
+        logging.error(f"Address not found for IP: {ip_address}")
+        return "Unknown"
+    except Exception as e:
+        logging.error(f"Error processing IP {ip_address}: {e}")
+        return "Unknown"
 
 @login_required
 def tracking_view(request):
@@ -94,6 +107,15 @@ def tracking_view(request):
         else:
             labels.append(interval_start.strftime('%b %Y'))
 
+    # Získanie zoznamu lokalít
+    locations = {}
+    for visitor in visitors:
+        city = get_city_from_ip(visitor.ip_address)
+        if city in locations:
+            locations[city] += 1
+        else:
+            locations[city] = 1
+
     context = {
         'new_users_data': new_users_data,
         'returning_users_data': returning_users_data,
@@ -103,5 +125,6 @@ def tracking_view(request):
         'new_users_text': f"{sum(new_users_data)}",
         'returning_users_text': f"{sum(returning_users_data)}",
         'total_visits_text': f"{sum(total_visits_data)}",
+        'locations': locations,
     }
     return render(request, 'tracking.html', context)

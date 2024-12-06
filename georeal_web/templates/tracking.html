@@ -24,8 +24,17 @@
         <p class="returning-users-text">Vracajúci sa používatelia: <span class="number">{{ returning_users_text }}</span></p>
         <p class="total-visits-text">Celkový počet návštev: <span class="number">{{ total_visits_text }}</span></p>
     </div>
+
     <div id="chart-container">
         <canvas id="visitorChart"></canvas>
+    </div>
+    <div class="locations">
+        <h2>Zoznam lokalít</h2>
+        <ul>
+            {% for city, count in locations.items %}
+                <li>{{ city }}: {{ count }} návštev</li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 
