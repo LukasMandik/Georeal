@@ -71,6 +71,9 @@ def tracking_view(request):
     returning_users_data = [0] * intervals
     total_visits_data = [0] * intervals
 
+    # Inicializácia dátových štruktúr pre IP adresy
+    ip_data = {}
+
     for i in range(intervals):
         interval_start = start_time + delta * i
         interval_end = interval_start + delta
@@ -102,10 +105,25 @@ def tracking_view(request):
         else:
             labels.append(interval_start.strftime('%b %Y'))
 
-    # Získanie zoznamu lokalít
+        for visitor in interval_visitors:
+            ip = visitor.ip_address
+            if ip not in ip_data:
+                ip_data[ip] = {'new': 0, 'returning': 0, 'total': 0}
+
+            # Predpokladáme, že ak je IP adresa nová v tomto intervale, je to nová návšteva
+            if not any(ip in interval_visitor.ip_address for interval_visitor in visitors.filter(start_time__lt=interval_start)):
+                ip_data[ip]['new'] += 1
+            else:
+                ip_data[ip]['returning'] += 1
+
+            ip_data[ip]['total'] += 1
+
+    # Získanie zoznamu lokalít a IP adries
     locations = {}
+    ip_addresses = []
     for visitor in visitors:
         city = get_city_from_ip(visitor.ip_address)
+        ip_addresses.append(visitor.ip_address)
         if city in locations:
             locations[city] += 1
         else:
@@ -121,5 +139,7 @@ def tracking_view(request):
         'returning_users_text': f"{sum(returning_users_data)}",
         'total_visits_text': f"{sum(total_visits_data)}",
         'locations': locations,
+        'ip_addresses': ip_addresses,
+        'ip_data': ip_data,  # Pridajte ip_data do kontextu
     }
     return render(request, 'tracking.html', context)

@@ -36,6 +36,19 @@
             {% endfor %}
         </ul>
     </div>
+    <div class="ip-addresses">
+        <h2>IP Adresy Návštevníkov</h2>
+        <ul>
+            {% for ip, data in ip_data.items %}
+                <li>
+                    {{ ip }}: 
+                    Nové návštevy: {{ data.new }}, 
+                    Opakované návštevy: {{ data.returning }}, 
+                    Celkom: {{ data.total }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
