@@ -106,15 +106,15 @@ body.dark-mode {
 
 
 .tracking-container .new-users-text span.number {
-    color: rgba(75, 192, 192, 1);
+	color: rgba(255, 159, 64, 1);
 }
 
 .tracking-container .returning-users-text span.number {
-    color: rgba(153, 102, 255, 1);
+	color: rgba(153, 102, 255, 1);
 }
 
 .tracking-container .total-visits-text span.number {
-    color: rgba(255, 159, 64, 1);
+	color: rgba(75, 192, 192, 1);
 }
 
 .switch-box {
