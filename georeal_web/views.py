@@ -46,9 +46,9 @@ def tracking_view(request):
         '24h': {'delta': timedelta(minutes=30), 'intervals': 48},
         'week': {'delta': timedelta(hours=12), 'intervals': 14},
         'month': {'delta': timedelta(days=1), 'intervals': 30},
-        'three_months': {'delta': timedelta(weeks=1), 'intervals': 12},
-        'half_year': {'delta': timedelta(weeks=2), 'intervals': 26},
-        'year': {'delta': timedelta(weeks=4), 'intervals': 12},
+        'three_months': {'delta': timedelta(days=3), 'intervals': 30},
+        'half_year': {'delta': timedelta(weeks=1), 'intervals': 26},
+        'year': {'delta': timedelta(weeks=2), 'intervals': 26},
     }
 
     period = request.GET.get('period', '24h')
