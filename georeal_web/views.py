@@ -35,7 +35,7 @@ def tracking_view(request):
     time_filters = {
         '1h': {'delta': timedelta(minutes=5), 'intervals': 12},
         '3h': {'delta': timedelta(minutes=30), 'intervals': 6},
-        '24h': {'delta': timedelta(hours=6), 'intervals': 4},
+        '24h': {'delta': timedelta(minutes=30), 'intervals': 48},
         'week': {'delta': timedelta(days=1), 'intervals': 7},
         'month': {'delta': timedelta(days=1), 'intervals': 30},
         'three_months': {'delta': timedelta(weeks=1), 'intervals': 12},
