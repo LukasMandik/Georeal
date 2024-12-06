@@ -31,13 +31,8 @@
     <div class="locations">
         <h2>Zoznam lokalít</h2>
         <ul>
-            {% for city, ips in locations.items %}
-                <li>{{ city }}: {{ ips|length }} návštev</li>
-                <ul>
-                    {% for ip in ips %}
-                        <li>{{ ip }}</li>
-                    {% endfor %}
-                </ul>
+            {% for city, count in locations.items %}
+                <li>{{ city }}: {{ count }} návštev, Čas na stránke: {{ time_on_site|floatformat:2 }} sekúnd</li>
             {% endfor %}
         </ul>
     </div>

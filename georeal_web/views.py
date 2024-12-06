@@ -102,14 +102,22 @@ def tracking_view(request):
         else:
             labels.append(interval_start.strftime('%b %Y'))
 
-    # Získanie zoznamu lokalít
+    # Získanie zoznamu lokalít a času stráveného na stránke
     locations = {}
+    time_on_site = {}
     for visitor in visitors:
         city = get_city_from_ip(visitor.ip_address)
-        if city in locations:
-            locations[city].append(visitor.ip_address)
+        if visitor.end_time is not None:
+            time_spent = (visitor.end_time - visitor.start_time).total_seconds()
         else:
-            locations[city] = [visitor.ip_address]
+            time_spent = (timezone.now() - visitor.start_time).total_seconds()  # Použite aktuálny čas, ak end_time je None
+
+        if city in locations:
+            locations[city] += 1
+            time_on_site[city] += time_spent
+        else:
+            locations[city] = 1
+            time_on_site[city] = time_spent
 
     context = {
         'new_users_data': new_users_data,
@@ -121,5 +129,6 @@ def tracking_view(request):
         'returning_users_text': f"{sum(returning_users_data)}",
         'total_visits_text': f"{sum(total_visits_data)}",
         'locations': locations,
+        'time_on_site': time_on_site,
     }
     return render(request, 'tracking.html', context)
