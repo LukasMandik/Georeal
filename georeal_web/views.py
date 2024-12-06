@@ -5,7 +5,6 @@ from django.shortcuts import redirect
 from django.db.models import Count
 from tracking.models import Visitor
 import geoip2.database
-import logging
 
 # Create your views here.
 # @cache_page(60 * 15) 
@@ -34,10 +33,6 @@ def get_city_from_ip(ip_address):
         response = reader.city(ip_address)
         return response.city.name
     except geoip2.errors.AddressNotFoundError:
-        logging.error(f"Address not found for IP: {ip_address}")
-        return "Unknown"
-    except Exception as e:
-        logging.error(f"Error processing IP {ip_address}: {e}")
         return "Unknown"
 
 @login_required
@@ -112,9 +107,9 @@ def tracking_view(request):
     for visitor in visitors:
         city = get_city_from_ip(visitor.ip_address)
         if city in locations:
-            locations[city] += 1
+            locations[city].append(visitor.ip_address)
         else:
-            locations[city] = 1
+            locations[city] = [visitor.ip_address]
 
     context = {
         'new_users_data': new_users_data,

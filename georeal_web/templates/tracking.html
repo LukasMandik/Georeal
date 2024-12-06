@@ -31,8 +31,13 @@
     <div class="locations">
         <h2>Zoznam lokalít</h2>
         <ul>
-            {% for city, count in locations.items %}
-                <li>{{ city }}: {{ count }} návštev</li>
+            {% for city, ips in locations.items %}
+                <li>{{ city }}: {{ ips|length }} návštev</li>
+                <ul>
+                    {% for ip in ips %}
+                        <li>{{ ip }}</li>
+                    {% endfor %}
+                </ul>
             {% endfor %}
         </ul>
     </div>
