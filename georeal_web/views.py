@@ -71,6 +71,12 @@ def tracking_view(request):
     returning_users_data = [0] * intervals
     total_visits_data = [0] * intervals
 
+    # Inicializácia dátovej štruktúry pre čas strávený na stránke
+    time_on_site_data = {}
+
+    # Inicializácia dátovej štruktúry pre čas strávený na stránke podľa IP adresy
+    time_on_site_by_ip = {}
+
     for i in range(intervals):
         interval_start = start_time + delta * i
         interval_end = interval_start + delta
@@ -102,22 +108,27 @@ def tracking_view(request):
         else:
             labels.append(interval_start.strftime('%b %Y'))
 
-    # Získanie zoznamu lokalít a času stráveného na stránke
+    # Získanie zoznamu lokalít
     locations = {}
-    time_on_site = {}
     for visitor in visitors:
         city = get_city_from_ip(visitor.ip_address)
-        if visitor.end_time is not None:
-            time_spent = (visitor.end_time - visitor.start_time).total_seconds()
-        else:
-            time_spent = (timezone.now() - visitor.start_time).total_seconds()  # Použite aktuálny čas, ak end_time je None
+        ip_address = visitor.ip_address
 
+        # Aktualizácia zoznamu lokalít
         if city in locations:
             locations[city] += 1
-            time_on_site[city] += time_spent
         else:
             locations[city] = 1
-            time_on_site[city] = time_spent
+
+        # Aktualizácia času stráveného na stránke podľa IP adresy
+        if ip_address in time_on_site_by_ip:
+            time_on_site_by_ip[ip_address] += visitor.time_on_site
+        else:
+            time_on_site_by_ip[ip_address] = visitor.time_on_site
+
+    # Konverzia času na formát dní, hodín, minút a sekúnd
+    for ip in time_on_site_by_ip:
+        time_on_site_by_ip[ip] = format_time(time_on_site_by_ip[ip])
 
     context = {
         'new_users_data': new_users_data,
@@ -129,6 +140,7 @@ def tracking_view(request):
         'returning_users_text': f"{sum(returning_users_data)}",
         'total_visits_text': f"{sum(total_visits_data)}",
         'locations': locations,
-        'time_on_site': time_on_site,
+        'time_on_site_data': time_on_site_data,
+        'time_on_site_by_ip': time_on_site_by_ip,  # Pridanie do kontextu
     }
     return render(request, 'tracking.html', context)
