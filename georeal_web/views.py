@@ -100,5 +100,8 @@ def tracking_view(request):
         'total_visits_data': total_visits_data,
         'labels': labels,
         'period': period,
+        'new_users_text': f"{sum(new_users_data)}",
+        'returning_users_text': f"{sum(returning_users_data)}",
+        'total_visits_text': f"{sum(total_visits_data)}",
     }
     return render(request, 'tracking.html', context)

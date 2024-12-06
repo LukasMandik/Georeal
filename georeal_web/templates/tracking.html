@@ -5,6 +5,11 @@
 
 <div class="tracking-container">
     <h1>Návštevnosť stránky</h1>
+    <div class="summary">
+        <p class="new-users-text">Noví používatelia: <span class="number">{{ new_users_text }}</span></p>
+        <p class="returning-users-text">Vracajúci sa používatelia: <span class="number">{{ returning_users_text }}</span></p>
+        <p class="total-visits-text">Celkový počet návštev: <span class="number">{{ total_visits_text }}</span></p>
+    </div>
     <div class="period">
         <label for="period">Zobraziť za:</label>
         <select id="period" onchange="updatePeriod()">
