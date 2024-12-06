@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     'georeal_web',
+    'silk',
+    'tracking',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,9 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.gzip.GZipMiddleware',
+    'tracking.middleware.VisitorTrackingMiddleware',
+    'silk.middleware.SilkyMiddleware',
+    # 'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',

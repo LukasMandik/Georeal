@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from georeal_web.sitemaps import StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
+# from georeal_web.views import silk_view
+from georeal_web.views import tracking_view
 sitemaps = {
     'static': StaticViewSitemap,
 }
@@ -30,6 +32,8 @@ urlpatterns = [
     path('', include('georeal_web.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    path('silk/', include('silk.urls', namespace='silk')),
+    path('tracking/', tracking_view, name='tracking'),
 ]
 
 

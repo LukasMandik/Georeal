@@ -67,6 +67,26 @@ body.dark-mode {
 .error404 h1{
 	margin-bottom: 20px;
 }
+
+.tracking-container{
+	margin: 0 auto;
+	margin-top: 160px;
+	align-items: center;
+	gap: 10px;
+
+	width: 600px;
+	min-height: 100svh;
+}
+.tracking-container h1{
+	text-align: center;
+	margin-bottom: 15px;
+	
+}
+.tracking-container .period{
+	text-align: center;
+	margin-bottom: 15px;
+}
+
 .switch-box {
     width: 40px;
     height: 20px;

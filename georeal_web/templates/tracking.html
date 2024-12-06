@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Návštevnosť stránky{% endblock %}
+
+{% block content %}
+
+<div class="tracking-container">
+    <h1>Návštevnosť stránky</h1>
+    <div class="period">
+        <label for="period">Zobraziť za:</label>
+        <select id="period" onchange="updatePeriod()">
+            <option value="all" {% if period == 'all' %}selected{% endif %}>Všetko</option>
+            <option value="1h" {% if period == '1h' %}selected{% endif %}>Posledná hodina</option>
+            <option value="3h" {% if period == '3h' %}selected{% endif %}>Posledné 3 hodiny</option>
+            <option value="24h" {% if period == '24h' %}selected{% endif %}>Posledných 24 hodín</option>
+            <option value="week" {% if period == 'week' %}selected{% endif %}>1 týždeň</option>
+            <option value="month" {% if period == 'month' %}selected{% endif %}>1 mesiac</option>
+            <option value="three_months" {% if period == 'three_months' %}selected{% endif %}>3 mesiace</option>
+            <option value="half_year" {% if period == 'half_year' %}selected{% endif %}>Pol roka</option>
+            <option value="year" {% if period == 'year' %}selected{% endif %}>1 rok</option>
+        </select>
+    </div>
+    <div id="chart-container">
+        <canvas id="visitorChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function updatePeriod() {
+        const period = document.getElementById('period').value;
+        window.location.href = `?period=${period}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('visitorChart').getContext('2d');
+        const visitorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ labels|safe }},
+                datasets: [
+                    {
+                        label: 'Noví používatelia',
+                        data: {{ new_users_data|safe }},
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Vracajúci sa používatelia',
+                        data: {{ returning_users_data|safe }},
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Celkový počet návštev',
+                        data: {{ total_visits_data|safe }},
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        fill: false,
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Návštevnosť podľa časových intervalov'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Časový interval'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Počet'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
