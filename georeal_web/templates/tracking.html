@@ -47,6 +47,8 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         const ctx = document.getElementById('visitorChart').getContext('2d');
+        const isMobile = window.innerWidth <= 768; // Detekcia mobilného zariadenia
+
         const visitorChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -81,6 +83,7 @@
             },
             options: {
                 responsive: true,
+                aspectRatio: isMobile ? 1.2/1 : undefined, // Nastavenie pomeru strán iba na mobilných zariadeniach
                 plugins: {
                     legend: {
                         position: 'top',

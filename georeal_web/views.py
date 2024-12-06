@@ -42,16 +42,16 @@ def tracking_view(request):
     # Definovanie časových filtrov pre jednotlivé obdobia
     time_filters = {
         '1h': {'delta': timedelta(minutes=5), 'intervals': 12},
-        '3h': {'delta': timedelta(minutes=30), 'intervals': 6},
+        '3h': {'delta': timedelta(minutes=15), 'intervals': 12},
         '24h': {'delta': timedelta(minutes=30), 'intervals': 48},
-        'week': {'delta': timedelta(days=1), 'intervals': 7},
+        'week': {'delta': timedelta(hours=12), 'intervals': 14},
         'month': {'delta': timedelta(days=1), 'intervals': 30},
         'three_months': {'delta': timedelta(weeks=1), 'intervals': 12},
         'half_year': {'delta': timedelta(weeks=2), 'intervals': 26},
         'year': {'delta': timedelta(weeks=4), 'intervals': 12},
     }
 
-    period = request.GET.get('period', 'all')
+    period = request.GET.get('period', '24h')
 
     if period in time_filters:
         delta = time_filters[period]['delta']
