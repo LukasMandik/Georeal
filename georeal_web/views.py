@@ -130,6 +130,24 @@ def tracking_view(request):
     for ip in time_on_site_by_ip:
         time_on_site_by_ip[ip] = format_time(time_on_site_by_ip[ip])
 
+    def format_time(seconds):
+        days, seconds = divmod(seconds, 86400)
+        hours, seconds = divmod(seconds, 3600)
+        minutes, seconds = divmod(seconds, 60)
+        return f"{days}d {hours}h {minutes}m {seconds}s"
+
+    # Aktualizácia času stráveného na stránke
+    for visitor in visitors:
+        city = get_city_from_ip(visitor.ip_address)
+        if city in time_on_site_data:
+            time_on_site_data[city] += visitor.time_on_site
+        else:
+            time_on_site_data[city] = visitor.time_on_site
+
+    # Konverzia času na formát dní, hodín, minút a sekúnd
+    for city in time_on_site_data:
+        time_on_site_data[city] = format_time(time_on_site_data[city])
+
     context = {
         'new_users_data': new_users_data,
         'returning_users_data': returning_users_data,
