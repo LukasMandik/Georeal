@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from django.views.decorators.cache import cache_page
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.db.models import Count
 from tracking.models import Visitor
@@ -26,6 +26,8 @@ def cookies(request):
 from django.utils import timezone
 from datetime import timedelta
 
+
+@login_required
 def tracking_view(request):
     now = timezone.now()
 
@@ -75,10 +77,8 @@ def tracking_view(request):
         new_users = interval_visitors.values('ip_address').distinct().count()
         new_users_data[i] = new_users
 
-        # Vracajúci sa používatelia (IP adresy, ktoré boli v minulosti)
-        current_ips = interval_visitors.values_list('ip_address', flat=True)
-        returning_users = Visitor.objects.filter(ip_address__in=current_ips, start_time__lt=interval_start).values('ip_address').distinct().count()
-        returning_users_data[i] = returning_users
+        # Vracajúci sa používatelia (celkový počet návštev mínus noví používatelia)
+        returning_users_data[i] = total_visits_data[i] - new_users_data[i]
 
         # Generovanie popiskov na časovú os
         if period in time_filters:
