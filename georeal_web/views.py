@@ -80,6 +80,8 @@ def tracking_view(request):
 
     # Inicializácia dátových štruktúr pre IP adresy
     ip_data = {}
+    unique_visitors = set()  # Množina pre sledovanie unikátnych návštevníkov
+    all_unique_visitors = set()  # Množina pre sledovanie všetkých unikátnych návštevníkov
 
     for i in range(intervals):
         interval_start = start_time + delta * i
@@ -87,16 +89,22 @@ def tracking_view(request):
 
         # Filtrácia návštev pre aktuálny interval
         interval_visitors = visitors.filter(start_time__gte=interval_start, start_time__lt=interval_end)
-
-        # Celkový počet návštev
+        
+        # Celkový počet návštev v intervale
         total_visits_data[i] = interval_visitors.count()
-
-        # Noví používatelia (unikátne IP adresy v tomto intervale)
-        new_users = interval_visitors.values('ip_address').distinct().count()
-        new_users_data[i] = new_users
-
+        
+        # Získanie unikátnych IP adries v tomto intervale
+        interval_unique_ips = set(interval_visitors.values_list('ip_address', flat=True))
+        
+        # Pridanie nových IP adries do celkovej množiny
+        new_unique_ips = interval_unique_ips - all_unique_visitors
+        all_unique_visitors.update(new_unique_ips)
+        
+        # Noví používatelia (celkový počet unikátnych IP adries)
+        new_users_data[i] = len(new_unique_ips)
+        
         # Vracajúci sa používatelia (celkový počet návštev mínus noví používatelia)
-        returning_users_data[i] = total_visits_data[i] - new_users_data[i]
+        returning_users_data[i] = total_visits_data[i] - len(interval_unique_ips)
 
         # Generovanie popiskov na časovú os
         if period in time_filters:
@@ -112,18 +120,14 @@ def tracking_view(request):
         else:
             labels.append(interval_start.strftime('%b %Y'))
 
+        # Spracovanie IP dát
         for visitor in interval_visitors:
             ip = visitor.ip_address
             if ip not in ip_data:
-                ip_data[ip] = {'new': 0, 'returning': 0, 'total': 0}
-
-            # Predpokladáme, že ak je IP adresa nová v tomto intervale, je to nová návšteva
-            if not any(ip in interval_visitor.ip_address for interval_visitor in visitors.filter(start_time__lt=interval_start)):
-                ip_data[ip]['new'] += 1
+                ip_data[ip] = {'new': 1, 'returning': 0, 'total': 1}
             else:
-                ip_data[ip]['returning'] += 1
-
-            ip_data[ip]['total'] += 1
+                ip_data[ip]['returning'] = ip_data[ip]['total']
+                ip_data[ip]['total'] += 1
 
     # Získanie zoznamu lokalít a IP adries
     locations = {}

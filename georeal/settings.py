@@ -167,3 +167,28 @@ sentry_sdk.init(
     # Set profiles_sample_rate to 1.0 to profile 100%
     # of sampled transactions.
 )
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+else:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+
+CORS_ALLOWED_ORIGINS = [
+    'https://georeal.biz',
+    'https://www.georeal.biz',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://georeal.biz',
+    'https://www.georeal.biz',
+]
