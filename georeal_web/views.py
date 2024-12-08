@@ -47,8 +47,9 @@ def tracking_view(request):
     time_filters = {
         '1h': {'delta': timedelta(minutes=5), 'intervals': 12},
         '3h': {'delta': timedelta(minutes=15), 'intervals': 12},
-        '24h': {'delta': timedelta(minutes=30), 'intervals': 48},
-        'week': {'delta': timedelta(hours=12), 'intervals': 14},
+        '12h': {'delta': timedelta(minutes=30), 'intervals': 24},
+        '24h': {'delta': timedelta(minutes=60), 'intervals': 24},
+        'week': {'delta': timedelta(days=1), 'intervals': 7},
         'month': {'delta': timedelta(days=1), 'intervals': 30},
         'three_months': {'delta': timedelta(days=3), 'intervals': 30},
         'half_year': {'delta': timedelta(weeks=1), 'intervals': 26},
@@ -108,7 +109,7 @@ def tracking_view(request):
 
         # Generovanie popiskov na časovú os
         if period in time_filters:
-            if period in ['1h', '3h', '24h']:
+            if period in ['1h', '3h', '12h', '24h']:
                 labels.append(interval_start.strftime('%H:%M'))
             elif period == 'week':
                 labels.append(interval_start.strftime('%a'))
