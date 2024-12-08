@@ -1,5 +1,7 @@
-   User-agent: *
-   Disallow: /private/
-   Allow: /
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /settings/
+Allow: /static/
 
-   Sitemap: https://georeal.biz/sitemap.xml
+Sitemap: https://www.georeal.biz/sitemap.xml
