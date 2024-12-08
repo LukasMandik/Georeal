@@ -38,7 +38,7 @@ def get_city_from_ip(ip_address):
 
 # Definujte čiernu listinu IP adries
 blacklist_ips = ['178.143.35.40', '85.237.234.159','178.143.35.180']
-
+ 
 @login_required
 def tracking_view(request):
     now = timezone.now()
