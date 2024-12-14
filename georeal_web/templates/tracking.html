@@ -169,16 +169,14 @@
         });
 
         // Vlastný vzhľad markera
-        function getMarkerIcon(is_recent) {
-            return {
-                path: google.maps.SymbolPath.CIRCLE,
-                fillColor: is_recent ? '#ff9f40' : '#2ecc71', // oranžová pre aktívne, zelená pre ostatné
-                fillOpacity: 0.9,
-                scale: 8,
-                strokeColor: '#ffffff',
-                strokeWeight: 2
-            };
-        }
+        var markerIcon = {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: '#2ecc71',
+            fillOpacity: 0.9,
+            scale: 12,
+            strokeColor: '#ffffff',
+            strokeWeight: 2
+        };
 
         // Definovanie IP adries a ich súradníc
         var locations = {{ locations_data|safe }};
@@ -190,7 +188,7 @@
             var marker = new google.maps.Marker({
                 position: {lat: location.lat, lng: location.lng},
                 map: map,
-                icon: getMarkerIcon(location.is_recent),
+                icon: markerIcon,
                 title: ip + ' (' + location.city + ': ' + location.visits + ' návštev)'
             });
 
@@ -223,7 +221,7 @@
                         icon: {
                             path: google.maps.SymbolPath.CIRCLE,
                             scale: 20,
-                            fillColor: "#2ecc71", // zelená farba pre clustre
+                            fillColor: "#2ecc71",
                             fillOpacity: 0.9,
                             strokeWeight: 2,
                             strokeColor: "#ffffff"

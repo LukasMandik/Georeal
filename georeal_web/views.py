@@ -145,20 +145,15 @@ def tracking_view(request):
         location = get_location_from_ip(ip)
         
         if location:
-            last_visit = visitor.start_time
-            is_recent = (timezone.now() - last_visit) <= timedelta(hours=1)
-            
             if ip not in locations_data:
                 locations_data[ip] = {
                     'lat': location['lat'],
                     'lng': location['lng'],
                     'visits': 1,
-                    'city': location['city'],
-                    'is_recent': is_recent
+                    'city': location['city']
                 }
             else:
                 locations_data[ip]['visits'] += 1
-                locations_data[ip]['is_recent'] = is_recent
 
     # Fake IP adresy pre slovenské mestá
     additional_locations = {
