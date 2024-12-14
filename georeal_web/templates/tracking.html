@@ -57,7 +57,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeYqWCVgwlDVz_Y0J5SXWv5nQeY_LYSdc"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 <script>
     function updatePeriod() {
         const period = document.getElementById('period').value;
@@ -147,17 +147,25 @@
                 "featureType": "landscape",
                 "elementType": "geometry",
                 "stylers": [{"color": "#f5f5f5"}, {"lightness": 20}]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#ffffff"}, {"lightness": 17}]
             }
         ];
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 7,
+            zoom: 3,
             center: {lat: 48.1486, lng: 17.1077},
             styles: mapStyles,
             mapTypeControl: false,
             streetViewControl: false,
             fullscreenControl: true,
-            gestureHandling: "greedy"
+            gestureHandling: "greedy",
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_CENTER
+            }
         });
 
         // Vlastný vzhľad markera
@@ -170,39 +178,39 @@
             strokeWeight: 2
         };
 
+        // Definovanie IP adries a ich súradníc
+        var locations = {{ locations_data|safe }};
+
         var markers = [];
-
-        {% for city, count in locations.items %}
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({'address': '{{ city }}'}, function(results, status) {
-                if (status === 'OK') {
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location,
-                        icon: markerIcon,
-                        title: '{{ city }}: {{ count }} návštev'
-                    });
-
-                    var infowindow = new google.maps.InfoWindow({
-                        content: '<div class="marker-info">' +
-                                    '<div class="city">{{ city }}</div>' +
-                                    '<div class="visits">Počet návštev: {{ count }}</div>' +
-                                '</div>'
-                    });
-
-                    marker.addListener('click', function() {
-                        infowindow.open(map, marker);
-                    });
-
-                    markers.push(marker);
-                } else {
-                    console.error('Geocode pre mesto {{ city }} zlyhal z dôvodu: ' + status);
-                }
+        
+        for (var ip in locations) {
+            var location = locations[ip];
+            var marker = new google.maps.Marker({
+                position: {lat: location.lat, lng: location.lng},
+                map: map,
+                icon: markerIcon,
+                title: ip + ' (' + location.city + ': ' + location.visits + ' návštev)'
             });
-        {% endfor %}
 
-        // Pridanie MarkerClusterer
-        new markerClusterer.MarkerClusterer({
+            (function(marker, ip, location) {
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<div class="marker-info">' +
+                                '<div class="ip">IP: ' + ip + '</div>' +
+                                '<div class="visits">Počet návštev: ' + location.visits + '</div>' +
+                                '<div class="city">' + location.city + '</div>' +
+                             '</div>'
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            })(marker, ip, location);
+
+            markers.push(marker);
+        }
+
+        // Vytvorenie MarkerClusterer
+        const markerCluster = new markerClusterer.MarkerClusterer({
             map,
             markers,
             renderer: {

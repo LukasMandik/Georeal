@@ -70,7 +70,7 @@ def tracking_view(request):
         start_time = now - delta * intervals
         visitors = Visitor.objects.filter(start_time__gte=start_time)
 
-    # Filtrovanie návštevníkov podľa čiernej listiny
+    # Filtrovanie návštevn��kov podľa čiernej listiny
     visitors = visitors.exclude(ip_address__in=blacklist_ips)
 
     # Inicializácia dátových štruktúr
@@ -133,14 +133,30 @@ def tracking_view(request):
     # Získanie zoznamu lokalít a IP adries
     locations = {}
     ip_addresses = []
+    
+    # Vytvorte slovník s lokáciami a ich súradnicami
+    locations_data = {}
     for visitor in visitors:
-        city = get_city_from_ip(visitor.ip_address)
-        ip_addresses.append(visitor.ip_address)
-        if city in locations:
-            locations[city] += 1
-        else:
-            locations[city] = 1
-
+        ip = visitor.ip_address
+        city = get_city_from_ip(ip)
+        
+        try:
+            reader = geoip2.database.Reader('static/GeoLite2-City.mmdb')
+            response = reader.city(ip)
+            
+            if ip not in locations_data:
+                locations_data[ip] = {
+                    'lat': float(response.location.latitude),
+                    'lng': float(response.location.longitude),
+                    'visits': 1,
+                    'city': city
+                }
+            else:
+                locations_data[ip]['visits'] += 1
+                
+        except Exception as e:
+            print(f"Chyba pri získavaní geolokácie pre IP {ip}: {e}")
+            
     context = {
         'new_users_data': new_users_data,
         'returning_users_data': returning_users_data,
@@ -153,5 +169,6 @@ def tracking_view(request):
         'locations': locations,
         'ip_addresses': ip_addresses,
         'ip_data': ip_data,  # Pridajte ip_data do kontextu
+        'locations_data': locations_data
     }
     return render(request, 'tracking.html', context)
