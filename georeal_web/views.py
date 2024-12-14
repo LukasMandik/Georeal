@@ -28,13 +28,17 @@ def cookies(request):
 from django.utils import timezone
 from datetime import timedelta
 
-def get_city_from_ip(ip_address):
+def get_location_from_ip(ip_address):
     reader = geoip2.database.Reader('static/GeoLite2-City.mmdb')
     try:
         response = reader.city(ip_address)
-        return response.city.name
+        return {
+            'lat': float(response.location.latitude),
+            'lng': float(response.location.longitude),
+            'city': response.city.name or "Unknown"
+        }
     except geoip2.errors.AddressNotFoundError:
-        return "Unknown"
+        return None
 
 # Definujte čiernu listinu IP adries
 blacklist_ips = ['178.143.35.40', '85.237.234.159','178.143.35.180']
@@ -70,7 +74,7 @@ def tracking_view(request):
         start_time = now - delta * intervals
         visitors = Visitor.objects.filter(start_time__gte=start_time)
 
-    # Filtrovanie návštevn��kov podľa čiernej listiny
+    # Filtrovanie návštevnkov podľa čiernej listiny
     visitors = visitors.exclude(ip_address__in=blacklist_ips)
 
     # Inicializácia dátových štruktúr
@@ -138,25 +142,34 @@ def tracking_view(request):
     locations_data = {}
     for visitor in visitors:
         ip = visitor.ip_address
-        city = get_city_from_ip(ip)
+        location = get_location_from_ip(ip)
         
-        try:
-            reader = geoip2.database.Reader('static/GeoLite2-City.mmdb')
-            response = reader.city(ip)
-            
+        if location:
             if ip not in locations_data:
                 locations_data[ip] = {
-                    'lat': float(response.location.latitude),
-                    'lng': float(response.location.longitude),
+                    'lat': location['lat'],
+                    'lng': location['lng'],
                     'visits': 1,
-                    'city': city
+                    'city': location['city']
                 }
             else:
                 locations_data[ip]['visits'] += 1
-                
-        except Exception as e:
-            print(f"Chyba pri získavaní geolokácie pre IP {ip}: {e}")
-            
+
+    # Fake IP adresy pre slovenské mestá
+    additional_locations = {
+        '95.102.45.75': {'lat': 48.9899, 'lng': 21.2421, 'visits': 5, 'city': 'Prešov'},
+        '178.143.35.180': {'lat': 49.2231, 'lng': 18.7403, 'visits': 8, 'city': 'Žilina'},
+        '95.102.45.80': {'lat': 48.3061, 'lng': 18.0870, 'visits': 3, 'city': 'Nitra'},
+        '178.143.35.190': {'lat': 48.7485, 'lng': 19.1571, 'visits': 6, 'city': 'Banská Bystrica'},
+        '95.102.45.85': {'lat': 48.5762, 'lng': 19.1371, 'visits': 4, 'city': 'Zvolen'},
+        '178.143.35.195': {'lat': 49.0746, 'lng': 20.3037, 'visits': 7, 'city': 'Poprad'},
+        '95.102.45.90': {'lat': 48.8921, 'lng': 17.5872, 'visits': 2, 'city': 'Trnava'},
+        '178.143.35.200': {'lat': 47.9854, 'lng': 18.1638, 'visits': 5, 'city': 'Komárno'}
+    }
+
+    # Pridanie fake lokácií do existujúcich locations_data
+    locations_data.update(additional_locations)
+
     context = {
         'new_users_data': new_users_data,
         'returning_users_data': returning_users_data,
