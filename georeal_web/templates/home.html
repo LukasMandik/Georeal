@@ -1,23 +1,40 @@
 {% extends 'base.html' %}
 
 {% load static %}
-<title>{% block title %}GEOREAL - Geodet{%endblock%}</title>
+<title>GEOREAL - Geodet | Geodetické práce | Geometrické plány{% block title %}{% endblock %}</title>
+
 {% block meta_description %}
 <meta name="description" content="Objavte špičkové geodetické služby s GEOREAL. Naša odbornosť a precíznosť sú zárukou vašej spokojnosti. Od merania pozemkov po inžiniersku geodéziu, sme tu pre vás už od roku 1995.">
 {% endblock %}
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "GEOREAL",
-  "url": "https://www.georeal.biz",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.georeal.biz/search?query={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "image": "https://www.georeal.biz/static/media/georeal-image.png"
-}
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "GEOREAL - Geodet | Geodetické práce | Geometrické plány",
+    "description": "Profesionálny geodet s 35 ročnou praxou. Komplexné geodetické služby.",
+    "image": "https://www.georeal.biz/static/media/georeal-image.png",
+    "priceRange": "€€",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1.mája č.95",
+        "addressLocality": "Handlová",
+        "postalCode": "972 51",
+        "addressCountry": "SK"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.7276,
+        "longitude": 18.7598
+    },
+    "url": "https://www.georeal.biz",
+    "telephone": "+421905696520",
+    "openingHours": "Mo-Fr 07:00-15:00",
+    "sameAs": [
+        "https://www.azet.sk/firma/1033629/milan-pukac-georeal/",
+        "https://www.zoznam.sk/firma/3061106/Georeal-Milan-Pukac-Handlova",
+        "https://www.zlatestranky.sk/firmy/Handlov%C3%A1/H1899562/GEODET+PRIEVIDZA+-+GEOREAL/",
+        "https://www.cylex.sk/handlova/geodet+prievidza+-+georeal-11175566.html"
+    ]
 </script>
 {% block og_title %}GEOREAL - Geodet, geodetické práce{% endblock %}
 {% block content %}

@@ -29,6 +29,9 @@
     <div id="chart-container">
         <canvas id="visitorChart"></canvas>
     </div>
+    <div class="map-container">
+        <div id="map" style="height: 500px; width: 100%;"></div>
+    </div>
     <div class="locations">
         <h2>Zoznam lokalít</h2>
         <ul>
@@ -49,9 +52,6 @@
                 </li>
             {% endfor %}
         </ul>
-    </div>
-    <div class="map-container">
-        <div id="map" style="height: 500px; width: 100%;"></div>
     </div>
 </div>
 
@@ -159,7 +159,7 @@
             zoom: 7,
             center: {lat: 48.6690, lng: 19.6990},
             styles: mapStyles,
-            mapTypeControl: false,
+            mapTypeControl: true,
             streetViewControl: false,
             fullscreenControl: true,
             gestureHandling: "greedy",

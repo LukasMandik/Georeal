@@ -1327,6 +1327,31 @@ body.dark-mode .main_home_container #kontakt .kontakt_container .kontakt_contain
 }
 
 
+.marker-info {
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+.marker-info .ip {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.marker-info .visits {
+    color: #27ae60;
+    font-size: 1.1em;
+}
+
+.marker-info .city {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+
+
 
 
 
